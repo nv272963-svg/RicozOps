@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance | RicozOps</title>
+
+    <link rel="stylesheet" href="../assets/css/attendance.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>RicozOps</h2>
+
+        </div>
+
+        <ul>
+
+            <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+            <li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+
+            <li><a href="projects.html"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+
+            <li><a href="task.html"><i class="fa-solid fa-list-check"></i> Tasks</a></li>
+
+            <li class="active">
+                <a href="attendance.html">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Attendance
+                </a>
+            </li>
+
+            <li><a href="reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a></li>
+
+            <li><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+<!-- Topbar -->
+
+<div class="topbar">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+    type="text"
+    id="searchAttendance"
+    placeholder="Search Attendance...">
+
+    </div>
+
+    <div class="topbar-right">
+
+        <button class="theme-btn">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <div class="notification">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>4</span>
+
+        </div>
+
+        <div class="profile">
+
+            <img src="../assets/images/user1.png"
+                 alt="Profile">
+
+            <div>
+
+                <h4>Nitin Varma</h4>
+
+                <small>Project Manager</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        <!-- Header -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Attendance Management</h1>
+
+                <p>Manage employee attendance records.</p>
+
+            </div>
+
+            
+
+        </div>
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <div class="stat-info">
+                <h3>Present Today</h3>
+                <h2 id="presentCount">0</h2>
+                <p>Employees Present</p>
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="stat-icon red">
+                <i class="fa-solid fa-user-xmark"></i>
+            </div>
+
+            <div class="stat-info">
+                <h3>Absent Today</h3>
+                <h2 id="absentCount">0</h2>
+                <p>Employees Absent</p>
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div class="stat-info">
+                <h3>Late</h3>
+                <h2 id="lateCount">0</h2>
+                <p>Late Employees</p>
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div class="stat-info">
+                <h3>Total Records</h3>
+                <h2 id="totalAttendance">0</h2>
+                <p>Attendance Records</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- Search -->
+
+       <section class="toolbar">
+
+    <div class="toolbar-left">
+
+        <input
+            type="text"
+            id="searchAttendance"
+            placeholder="Search Employee...">
+
+    </div>
+
+    <div class="toolbar-right">
+
+       <button
+class="btn btn-success excel-btn"
+id="exportExcelBtn">
+
+    <i class="fa-solid fa-file-excel"></i>
+
+    Excel
+
+</button>
+
+        <button
+class="btn btn-danger pdf-btn"
+id="exportPdfBtn">
+
+    <i class="fa-solid fa-file-pdf"></i>
+
+    PDF
+
+</button>
+
+        <button
+            class="btn btn-primary"
+            id="addAttendanceBtn">
+
+            <i class="fa-solid fa-plus"></i>
+            New Attendance
+
+        </button>
+
+    </div>
+
+</section>
+
+       <div class="table-container">
+       
+            <table id="attendanceTable">
+
+                <thead>
+
+                    <tr>
+
+    <th>ID</th>
+
+    <th>Employee</th>
+
+    <th>Date</th>
+
+    <th>Check In</th>
+
+    <th>Check Out</th>
+
+    <th>Status</th>
+
+    <th>Remarks</th>
+
+    <th>Action</th>
+
+</tr>
+
+                </thead>
+
+                <tbody id="attendanceTableBody">
+
+                    <!-- JavaScript Data -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ================= ATTENDANCE MODAL ================= -->
+
+<div class="modal" id="attendanceModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+
+                Add Attendance
+
+            </h2>
+
+            <span id="closeModal">&times;</span>
+
+        </div>
+
+        <form id="attendanceForm">
+
+            <input type="hidden" id="attendance_db_id">
+
+            <div class="form-group">
+
+                <label>Employee</label>
+
+                <select id="employee_id">
+
+                    <option value="">Select Employee</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Attendance Date</label>
+
+                <input type="date" id="attendance_date">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Check In</label>
+
+                <input type="time" id="check_in">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Check Out</label>
+
+                <input type="time" id="check_out">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Status</label>
+
+                <select id="status">
+
+                    <option>Present</option>
+
+                    <option>Absent</option>
+
+                    <option>Late</option>
+
+                    <option>Half Day</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Remarks</label>
+
+                <textarea id="remarks"></textarea>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" id="cancelBtn">
+
+                    Cancel
+
+                </button>
+
+                <button type="submit" id="saveAttendanceBtn">
+
+                    Save Attendance
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../assets/js/attendance.js"></script>
+
+</body>
+</html>

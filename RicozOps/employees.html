@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employees | RicozOps</title>
+
+    <link rel="stylesheet" href="../assets/css/employees.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= Sidebar Start ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>RicozOps</h2>
+
+            <p>Business Operations</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="projects.html">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="employees.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employees</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="tasks.html">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tasks</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="reports.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="notifications.html">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <i class="fa-solid fa-circle-question"></i>
+                Help Center
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= Sidebar End ================= -->
+
+
+    <!-- ================= Main Content Start ================= -->
+
+    <main class="main-content">
+
+        <!-- Top Navigation -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search employee, department, email...">
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button id="themeToggle" class="theme-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>4</span>
+
+                </div>
+
+                <div class="profile">
+
+                    <img src="../assets/images/user1.png" alt="Profile">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Page Heading -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Employees</h1>
+
+                <p>Manage all employees in one place.</p>
+
+            </div>
+
+            <div class="header-buttons">
+
+                <button class="export-btn">
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Export
+
+                </button>
+
+                <button class="add-btn">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Add Employee
+
+                </button>
+
+            </div>
+
+        </div>
+                <!-- ==========================================
+                EMPLOYEE STATISTICS
+        =========================================== -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Total Employees</h3>
+
+                    <h2>125</h2>
+
+                    <p><i class="fa-solid fa-arrow-up"></i> +12 this month</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Active Employees</h3>
+
+                    <h2>118</h2>
+
+                    <p>94% Active</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-calendar-xmark"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>On Leave</h3>
+
+                    <h2>05</h2>
+
+                    <p>Today's Leave</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>New Joiners</h3>
+
+                    <h2>08</h2>
+
+                    <p>This Month</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Departments</h3>
+
+                    <h2>06</h2>
+
+                    <p>Across Company</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                FILTER BAR
+        =========================================== -->
+
+        <section class="filter-bar">
+
+            <div class="filter-left">
+
+                <input type="text"
+                       id="employeeSearch"
+                       placeholder="Search employee...">
+
+                <select>
+
+                    <option>All Departments</option>
+
+                    <option>Development</option>
+
+                    <option>HR</option>
+
+                    <option>UI/UX</option>
+
+                    <option>Marketing</option>
+
+                    <option>Finance</option>
+
+                </select>
+
+                <select>
+
+                    <option>All Status</option>
+
+                    <option>Active</option>
+
+                    <option>Inactive</option>
+
+                    <option>On Leave</option>
+
+                </select>
+
+            </div>
+
+            <div class="filter-right">
+
+                <button class="excel-btn">
+
+                    <i class="fa-solid fa-file-excel"></i>
+
+                    Excel
+
+                </button>
+
+                <button class="pdf-btn">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    PDF
+
+                </button>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                EMPLOYEE TABLE
+        =========================================== -->
+
+        <section class="employee-table-section">
+
+            <div class="table-header">
+<button class="add-btn" id="addEmployeeBtn">
+    <i class="fa-solid fa-plus"></i>
+    Add Employee
+</button>
+<div class="employee-modal" id="employeeModal">
+
+    <div class="modal-content">
+
+        <h2 id="modalTitle">Add Employee</h2>
+
+        <form id="employeeForm">
+<input type="hidden" id="employee_db_id">
+            <input type="text" id="employee_id" placeholder="Employee ID" required>
+
+            <input type="text" id="full_name" placeholder="Full Name" required>
+
+            <input type="email" id="email" placeholder="Email" required>
+
+            <input type="text" id="phone" placeholder="Phone" required>
+
+            <input type="text" id="department" placeholder="Department" required>
+
+            <input type="text" id="designation" placeholder="Designation" required>
+
+            <input type="number" id="salary" placeholder="Salary" required>
+
+            <input type="date" id="joining_date" required>
+
+            <div class="modal-buttons">
+
+                <button type="submit" id="saveEmployeeBtn">Save Employee</button>
+
+                <button type="button" id="closeModal">
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<select id="status" required>
+
+<option value="Active">Active</option>
+
+<option value="Inactive">Inactive</option>
+
+<option value="On Leave">On Leave</option>
+
+</select>
+                <h2>Employee Directory</h2>
+
+                <p id="employeeCount">
+Showing 0 Employees
+</p>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="employee-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Photo</th>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Salary</th>
+                            <th>Joining</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="employeeTableBody">
+
+</tbody>
+                </table>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                ANALYTICS SECTION
+        =========================================== -->
+
+        <section class="analytics-section">
+
+            <!-- Department Chart -->
+
+            <div class="chart-card">
+
+                <h2>Department Distribution</h2>
+
+                <canvas id="departmentChart"></canvas>
+
+            </div>
+
+            <!-- Hiring Chart -->
+
+            <div class="chart-card">
+
+                <h2>Monthly Hiring</h2>
+
+                <canvas id="hiringChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+                BOTTOM SECTION
+        =========================================== -->
+
+        <section class="bottom-section">
+
+            <!-- Upcoming Birthdays -->
+
+            <div class="birthday-card">
+
+                <h2>
+                    <i class="fa-solid fa-cake-candles"></i>
+                    Upcoming Birthdays
+                </h2>
+
+                <ul>
+
+                    <li>
+
+                        <img src="../assets/images/user2.jpg" alt="">
+
+                        <div>
+
+                            <strong>Neha Sharma</strong>
+
+                            <p>21 September</p>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <img src="../assets/images/user3.jpg" alt="">
+
+                        <div>
+
+                            <strong>Priya Singh</strong>
+
+                            <p>24 September</p>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <img src="../assets/images/user4.jpg" alt="">
+
+                        <div>
+
+                            <strong>Sneha Verma</strong>
+
+                            <p>28 September</p>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Top Performers -->
+
+            <div class="performer-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    Top Performers
+
+                </h2>
+
+                <div class="performer">
+
+                    <img src="../assets/images/user1.png">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Frontend Developer</small>
+
+                    </div>
+
+                    <span>98%</span>
+
+                </div>
+
+                <div class="performer">
+
+                    <img src="../assets/images/user2.jpg">
+
+                    <div>
+
+                        <h4>Rahul Sharma</h4>
+
+                        <small>UI Designer</small>
+
+                    </div>
+
+                    <span>96%</span>
+
+                </div>
+
+                <div class="performer">
+
+                    <img src="../assets/images/user3.jpg">
+
+                    <div>
+
+                        <h4>Priya Singh</h4>
+
+                        <small>HR Manager</small>
+
+                    </div>
+
+                    <span>94%</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+                PAGINATION
+        =========================================== -->
+
+        <div class="pagination">
+
+            <button>
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+
+            <button class="active">1</button>
+
+            <button>2</button>
+
+            <button>3</button>
+
+            <button>4</button>
+
+            <button>5</button>
+
+            <button>
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+        </div>
+
+
+
+        <!-- ==========================================
+                FOOTER
+        =========================================== -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 RicozOps |
+                Employee Management System
+
+            </p>
+
+            <p>
+
+                Version 2.0 |
+                Designed by Nitin Varma
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Employee JS -->
+
+<script src="../assets/js/employees.js"></script>
+
+</body>
+
+</html>

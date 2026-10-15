@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tasks | RicozOps</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          <link rel="stylesheet" href="../assets/css/tasks.css">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ==========================================
+                    SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h2>RicozOps</h2>
+
+                <p>Enterprise ERP</p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="projects.html">
+
+                        <i class="fa-solid fa-folder-open"></i>
+
+                        <span>Projects</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="employees.html">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <span>Employees</span>
+
+                    </a>
+
+                </li>
+
+                <li class="active">
+
+                    <a href="task.html">
+
+                        <i class="fa-solid fa-list-check"></i>
+
+                        <span>Tasks</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="reports.html">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        <span>Reports</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="notifications.html">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                        <span>Notifications</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="settings.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Settings</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================================
+                    MAIN CONTENT
+    =========================================== -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search Tasks...">
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>4</span>
+
+                </div>
+
+                <div class="profile">
+
+                    <img src="../assets/images/user1.png"
+                         alt="Profile">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Project Manager</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+                    PAGE HEADER
+        =========================================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Task Management</h1>
+
+                <p>
+
+                    Assign, Track and Manage all company tasks efficiently.
+
+                </p>
+
+            </div>
+
+            <div class="header-buttons">
+
+                <button class="export-btn">
+
+                    <i class="fa-solid fa-file-export"></i>
+
+                    Export
+
+                </button>
+
+                <button class="add-btn" id="addTaskBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Task
+
+                </button>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                    TASK STATISTICS
+        =========================================== -->
+
+        <section class="stats-section">
+<div class="stats-grid">
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Total Tasks</h3>
+
+                    <h2 id="totalTasks">0</h2>
+
+                    <p>+18 This Week</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-hourglass-half"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Pending</h3>
+
+                    <h2 id="pendingTasks">0</h2>
+
+                    <p>Needs Attention</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="fa-solid fa-spinner"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>In Progress</h3>
+
+                    <h2 id="runningTasks">0</h2>
+
+                    <p>Currently Running</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Completed</h3>
+
+                    <<h2 id="completedTasks">0</h2>
+
+                    <p>Completed Successfully</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+                <div class="stat-info">
+
+                    <h3>Overdue</h3>
+
+                    <h2 id="overdueTasks">0</h2>
+
+                    <p>Immediate Action</p>
+
+                </div>
+
+            </div>
+</div> <!-- stats-grid -->
+        </section>
+
+        <!-- ==========================================
+                    FILTER SECTION
+        =========================================== -->
+
+        <section class="filter-bar">
+
+            <div class="filter-left">
+
+                <input
+                    type="text"
+                    id="taskSearch"
+                    placeholder="Search Task...">
+<select id="employeeFilter">
+    <option value="">All Employees</option>
+</select>
+
+<select id="projectFilter">
+    <option value="">All Projects</option>
+</select>
+                <select id="priorityFilter">
+
+                    <option value="all">All Priority</option>
+
+                    <option value="high">High</option>
+
+                    <option value="medium">Medium</option>
+
+                    <option value="low">Low</option>
+
+                </select>
+
+                <select id="statusFilter">
+
+                    <option value="all">All Status</option>
+
+                    <option value="todo">To Do</option>
+
+                    <option value="progress">In Progress</option>
+
+                    <option value="completed">Completed</option>
+
+                </select>
+
+                <select id="employeeFilter">
+
+<option value="">All Employees</option>
+
+</select>
+            </div>
+
+            <div class="filter-right">
+
+                <button class="excel-btn">
+
+                    <i class="fa-solid fa-file-excel"></i>
+
+                    Excel
+
+                </button>
+
+                <button class="pdf-btn">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    PDF
+
+                </button>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                    KANBAN BOARD
+        =========================================== -->
+
+        <section class="kanban-board">
+
+            <!-- ================= TO DO ================= -->
+
+            <div class="kanban-column todo">
+
+                <div class="column-header">
+
+                    <h2>
+                        <i class="fa-solid fa-list"></i>
+                        To Do
+                    </h2>
+
+                    <span>3</span>
+
+                </div>
+
+                <!-- Task Card -->
+
+                <div class="task-card">
+
+                    <h3>Design Login Page</h3>
+
+                    <p>Create responsive login UI for ERP system.</p>
+
+                    <div class="task-info">
+
+                        <span class="priority high">
+                            High
+                        </span>
+
+                        <span class="due-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            20 Sept
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:20%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user1.png">
+
+                        <small>Assigned to Nitin</small>
+
+                    </div>
+
+                </div>
+
+                <!-- Task Card -->
+
+                <div class="task-card">
+
+                    <h3>Database Schema</h3>
+
+                    <p>Create MongoDB collections.</p>
+
+                    <div class="task-info">
+
+                        <span class="priority medium">
+
+                            Medium
+
+                        </span>
+
+                        <span class="due-date">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            23 Sept
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:35%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user2.jpg">
+
+                        <small>Rahul Sharma</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= IN PROGRESS ================= -->
+
+            <div class="kanban-column progress-column">
+
+                <div class="column-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-spinner"></i>
+
+                        In Progress
+
+                    </h2>
+
+                    <span>2</span>
+
+                </div>
+
+                <div class="task-card">
+
+                    <h3>Employee Module</h3>
+
+                    <p>Develop CRUD API & UI.</p>
+
+                    <div class="task-info">
+
+                        <span class="priority medium">
+
+                            Medium
+
+                        </span>
+
+                        <span class="due-date">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            25 Sept
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:65%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user3.jpg">
+
+                        <small>Priya Singh</small>
+
+                    </div>
+
+                </div>
+
+                <div class="task-card">
+
+                    <h3>Project Dashboard</h3>
+
+                    <p>Analytics using Chart.js</p>
+
+                    <div class="task-info">
+
+                        <span class="priority low">
+
+                            Low
+
+                        </span>
+
+                        <span class="due-date">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            28 Sept
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:80%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user4.jpg">
+
+                        <small>Amit Verma</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= COMPLETED ================= -->
+
+            <div class="kanban-column completed">
+
+                <div class="column-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Completed
+
+                    </h2>
+
+                    <span>2</span>
+
+                </div>
+
+                <div class="task-card completed-card">
+
+                    <h3>Requirement Analysis</h3>
+
+                    <p>Client meeting completed.</p>
+
+                    <div class="task-info">
+
+                        <span class="priority low">
+
+                            Completed
+
+                        </span>
+
+                        <span class="due-date">
+
+                            <i class="fa-solid fa-check"></i>
+
+                            Done
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:100%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user1.png">
+
+                        <small>Nitin Varma</small>
+
+                    </div>
+
+                </div>
+
+                <div class="task-card completed-card">
+
+                    <h3>Project Planning</h3>
+
+                    <p>Documentation approved.</p>
+
+                    <div class="task-info">
+
+                        <span class="priority low">
+
+                            Completed
+
+                        </span>
+
+                        <span class="due-date">
+
+                            <i class="fa-solid fa-check"></i>
+
+                            Done
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 style="width:100%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="task-footer">
+
+                        <img src="../assets/images/user2.jpg">
+
+                        <small>Rahul Sharma</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                    TASK ANALYTICS
+        =========================================== -->
+
+        <section class="analytics-section">
+
+            <div class="chart-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Weekly Task Progress
+
+                </h2>
+
+                <canvas id="taskChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Task Distribution
+
+                </h2>
+
+                <canvas id="taskPieChart"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                    PRODUCTIVITY + CALENDAR
+        =========================================== -->
+
+        <section class="bottom-section">
+
+            <!-- Team Productivity -->
+
+            <div class="productivity-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Team Productivity
+
+                </h2>
+
+                <table class="productivity-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Employee</th>
+
+                            <th>Completed</th>
+
+                            <th>Efficiency</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Nitin Varma</td>
+
+                            <td>42</td>
+
+                            <td>96%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Rahul Sharma</td>
+
+                            <td>38</td>
+
+                            <td>91%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Priya Singh</td>
+
+                            <td>35</td>
+
+                            <td>89%</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Amit Verma</td>
+
+                            <td>33</td>
+
+                            <td>87%</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Calendar -->
+
+            <div class="calendar-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Calendar
+
+                </h2>
+
+                <div id="calendar"></div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                    RECENT ACTIVITY
+        =========================================== -->
+
+        <section class="activity-section">
+
+            <div class="activity-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    Recent Activity
+
+                </h2>
+
+                <ul>
+
+                    <li>
+
+                        ✅ Login UI task completed by Rahul
+
+                    </li>
+
+                    <li>
+
+                        🚀 API Development assigned to Nitin
+
+                    </li>
+
+                    <li>
+
+                        📁 Database schema updated
+
+                    </li>
+
+                    <li>
+
+                        🔄 Dashboard module reviewed
+
+                    </li>
+
+                    <li>
+
+                        📊 Weekly report generated
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Deadlines -->
+
+            <div class="deadline-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-hourglass-end"></i>
+
+                    Upcoming Deadlines
+
+                </h2>
+
+                <ul>
+
+                    <li>
+
+                        🔥 Login Module
+                        <span>20 Sept</span>
+
+                    </li>
+
+                    <li>
+
+                        ⚠ Employee CRUD
+                        <span>22 Sept</span>
+
+                    </li>
+
+                    <li>
+
+                        📊 Dashboard Analytics
+                        <span>25 Sept</span>
+
+                    </li>
+
+                    <li>
+
+                        🚀 ERP Deployment
+                        <span>30 Sept</span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                    QUICK ACTIONS
+        =========================================== -->
+
+        <section class="quick-actions-section">
+
+            <div class="quick-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Quick Actions
+
+                </h2>
+
+                <div class="quick-buttons">
+
+                    <button class="action-btn new-task-btn" id="newTaskBtn">
+    <i class="fa-solid fa-plus"></i>
+    New Task
+</button>
+
+                    <button class="quick-btn">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Assign Task
+
+                    </button>
+
+                    <button class="quick-btn">
+
+                        <i class="fa-solid fa-file-export"></i>
+
+                        Export Report
+
+                    </button>
+
+                    <button class="quick-btn">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        View Analytics
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+<!-- ================= TASK LIST ================= -->
+
+<section class="task-list-section">
+
+    <div class="table-card">
+
+        <h2>Task List</h2>
+
+        <table class="task-table">
+
+            <thead>
+
+                <tr>
+
+                   <th>Task</th>
+<th>Employee</th>
+<th>Project</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Due Date</th>
+<th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="taskTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+        <!-- ==========================================
+                    FOOTER
+        =========================================== -->
+
+        <footer class="footer">
+
+            <div>
+
+                © 2026 <strong>RicozOps ERP</strong>
+
+            </div>
+
+            <div>
+
+                Version 2.0.0
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ==========================================
+            CHART.JS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ==========================================
+            TASK JS
+========================================== -->
+
+<script src="../assets/js/tasks.js"></script>
+<!-- Task Modal -->
+<div class="modal" id="taskModal">
+
+    
+
+    <div class="modal-content">
+    <span class="close-modal" id="closeTaskModal">&times;</span>
+
+        <h2 id="modalTitle">Add Task</h2>
+
+        <form id="taskForm">
+
+            <input type="hidden" id="task_db_id">
+
+           <input
+type="text"
+id="task_title"
+placeholder="Task Title"
+required>
+
+           <select id="employee_id" required>
+
+<option value="">Select Employee</option>
+
+</select>
+<select id="project_id" required>
+
+<option value="">Select Project</option>
+
+</select>
+<input
+type="date"
+id="start_date"
+required>
+            <input type="date" id="due_date" required>
+
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <select id="status">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <textarea id="description" placeholder="Task Description"></textarea>
+
+            <button type="submit" id="saveTaskBtn">
+                Save Task
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+</body>
+
+</html>

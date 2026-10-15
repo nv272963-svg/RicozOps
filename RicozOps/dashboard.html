@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | RicozOps</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ========================= -->
+    <!-- Sidebar Start -->
+    <!-- ========================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>RicozOps</h2>
+
+            <p>Business Operations</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+           <li id="menuProjects">
+    <a href="projects.html">
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <span>Projects</span>
+
+                </a>
+
+            </li>
+
+           <li id="menuEmployees">
+    <a href="employees.html">
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Employees</span>
+
+                </a>
+
+            </li>
+
+           <li id="menuTasks">
+    <a href="tasks.html">
+                    <i class="fa-solid fa-list-check"></i>
+
+                    <span>Tasks</span>
+
+                </a>
+
+            </li>
+
+            <li id="menuReports">
+    <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Reports</span>
+
+                </a>
+
+            </li>
+
+            <li id="menuNotifications">
+    <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>Notifications</span>
+
+                </a>
+
+            </li>
+
+            <li id="menuSettings">
+    <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <div class="sidebar-footer">
+
+            <a href="#">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+                Help Center
+
+            </a>
+
+            <a href="#" id="logoutBtn">
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    Logout
+
+</a>
+        </div>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- Sidebar End -->
+    <!-- ========================= -->
+
+
+
+    <!-- ========================= -->
+    <!-- Main Content -->
+    <!-- ========================= -->
+
+    <main class="main-content">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                    placeholder="Search employees, projects, tasks...">
+
+            </div>
+
+            <div class="nav-right">
+
+                <!-- Dark Mode -->
+
+                <button class="theme-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <!-- Notification -->
+
+                <div class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="badge">5</span>
+
+                </div>
+
+                <!-- Profile -->
+
+                <div class="profile">
+
+                    <img src="../assets/images/user1.png" alt="User">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- Dashboard Heading -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back,
+                    <strong>Nitin 👋</strong>
+                </p>
+
+            </div>
+
+            <div class="header-buttons">
+
+                <button class="btn-secondary"
+        onclick="window.location.href='reports.html'">
+
+    <i class="fa-solid fa-download"></i>
+
+    Export Report
+
+</button>
+
+                <button class="btn-primary"
+        onclick="window.location.href='tasks.html'">
+
+    <i class="fa-solid fa-plus"></i>
+
+    Create New
+
+</button>
+            </div>
+
+        </section>
+
+        <!-- ========= PART 2 START HERE ========= -->
+         <!-- ===================================== -->
+<!-- KPI Cards -->
+<!-- ===================================== -->
+
+<section class="dashboard-cards">
+
+    <div class="card employees">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-users"></i>
+        </div>
+
+        <div class="card-info">
+
+           <h5>Total Employees</h5>
+<h2 id="totalEmployees">0</h2>
+
+            <span class="increase">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +12 this month
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card projects">
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-folder-open"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h5>Active Projects</h5>
+<h2 id="totalProjects">0</h2>
+
+            <span class="increase">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                +4 New Projects
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card tasks">
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-list-check"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h5>Pending Tasks</h5>
+<h2 id="totalTasks">0</h2>
+
+
+            <span class="warning">
+
+                <i class="fa-solid fa-clock"></i>
+
+                Due Today
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="card revenue">
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <div class="card-info">
+
+            <h5>Total Revenue</h5>
+<h2 id="totalRevenue">₹0</h2>
+
+            <span class="increase">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                +18%
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================== -->
+<!-- Quick Actions -->
+<!-- ===================================== -->
+
+<section class="quick-actions">
+
+    <div class="section-title">
+
+        <h2>Quick Actions</h2>
+
+        <p>Manage your business faster</p>
+
+    </div>
+
+    <div class="action-grid">
+
+       <button class="action-card"
+        onclick="window.location.href='employees.html'">
+
+    <i class="fa-solid fa-user-plus"></i>
+
+    <span>Add Employee</span>
+
+</button>
+
+       <button class="action-card"
+        onclick="window.location.href='projects.html'">
+
+    <i class="fa-solid fa-folder-plus"></i>
+
+    <span>New Project</span>
+
+</button>
+
+
+
+       <button class="action-card"
+        onclick="window.location.href='tasks.html'">
+
+    <i class="fa-solid fa-list-check"></i>
+
+    <span>Create Task</span>
+
+</button>
+
+
+
+        <button class="action-card"
+        onclick="window.location.href='reports.html'">
+
+    <i class="fa-solid fa-file-export"></i>
+
+    <span>Export Report</span>
+
+</button>
+
+
+
+        <button class="action-card"
+        onclick="window.location.href='mailto:'">
+
+    <i class="fa-solid fa-envelope"></i>
+
+    <span>Send Mail</span>
+
+</button>
+
+
+
+        <button class="action-card"
+        onclick="alert('Schedule Meeting Coming Soon')">
+
+    <i class="fa-solid fa-calendar-days"></i>
+
+    <span>Schedule Meeting</span>
+
+</button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================== -->
+<!-- Statistics Summary -->
+<!-- ===================================== -->
+
+<section class="stats-summary">
+
+    <div class="summary-card">
+
+        <h4>Completed Tasks</h4>
+
+        <h2>1,284</h2>
+
+        <small>92% Success Rate</small>
+
+    </div>
+
+
+
+    <div class="summary-card">
+
+        <h4>Today's Attendance</h4>
+
+        <h2>118 / 125</h2>
+
+        <small>94.4% Present</small>
+
+    </div>
+
+
+
+    <div class="summary-card">
+
+        <h4>Running Projects</h4>
+
+        <h2>18</h2>
+
+        <small>10 Completed</small>
+
+    </div>
+
+
+
+    <div class="summary-card">
+
+        <h4>Client Satisfaction</h4>
+
+        <h2>98%</h2>
+
+        <small>★★★★★</small>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========= PART 3 START HERE ========= -->
+ <!-- ===================================== -->
+<!-- Analytics Dashboard -->
+<!-- ===================================== -->
+
+<section class="analytics-section">
+
+    <!-- Revenue Chart -->
+
+    <div class="chart-card large-chart">
+
+        <div class="card-header">
+
+            <h2>Revenue Overview</h2>
+
+            <select>
+
+                <option>This Year</option>
+                <option>Last Year</option>
+                <option>Last 6 Months</option>
+
+            </select>
+
+        </div>
+
+        <canvas id="revenueChart"></canvas>
+
+    </div>
+
+
+
+    <!-- Project Status -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h2>Project Status</h2>
+
+        </div>
+
+        <canvas id="projectChart"></canvas>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================== -->
+<!-- Second Analytics Row -->
+<!-- ===================================== -->
+
+<section class="analytics-section">
+
+    <!-- Employee Growth -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h2>Employee Growth</h2>
+
+        </div>
+
+        <canvas id="employeeChart"></canvas>
+
+    </div>
+
+
+
+    <!-- Task Progress -->
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h2>Task Completion</h2>
+
+        </div>
+
+        <canvas id="taskChart"></canvas>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================== -->
+<!-- Recent Activity Timeline -->
+<!-- ===================================== -->
+
+<section class="activity-section">
+
+    <div class="activity-card">
+
+        <div class="card-header">
+
+            <h2>Recent Activities</h2>
+
+            <a href="#">View All</a>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>Project Alpha Completed</h4>
+
+                    <p>Rahul completed Dashboard Module successfully.</p>
+
+                    <span>10 Minutes Ago</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon primary">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>New Employee Joined</h4>
+
+                    <p>Priya Sharma joined the Development Team.</p>
+
+                    <span>1 Hour Ago</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon warning">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>Task Deadline Reminder</h4>
+
+                    <p>CRM Integration task is due tomorrow.</p>
+
+                    <span>Today</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon danger">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>Server Maintenance</h4>
+
+                    <p>Scheduled maintenance tonight at 11:00 PM.</p>
+
+                    <span>Today</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========= PART 4 START HERE ========= -->
+ <!-- ===================================== -->
+<!-- Bottom Dashboard Section -->
+<!-- ===================================== -->
+
+<section class="bottom-dashboard">
+
+    <!-- Employee Performance -->
+
+    <div class="employee-card">
+
+        <div class="card-header">
+
+            <h2>Top Employees</h2>
+
+            <a href="employees.html">View All</a>
+
+        </div>
+
+        <table class="employee-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Employee</th>
+
+                    <th>Department</th>
+
+                    <th>Performance</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        <div class="employee-info">
+
+                            <img src="../assets/images/user1.png">
+
+                            <div>
+
+                                <h4>Rahul Sharma</h4>
+
+                                <small>EMP001</small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>Development</td>
+
+                    <td>96%</td>
+
+                    <td>
+
+                        <span class="status active">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        <div class="employee-info">
+
+                            <img src="../assets/images/user2.jpg">
+
+                            <div>
+
+                                <h4>Priya Singh</h4>
+
+                                <small>EMP002</small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>HR</td>
+
+                    <td>93%</td>
+
+                    <td>
+
+                        <span class="status active">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+
+                        <div class="employee-info">
+
+                            <img src="../assets/images/user3.jpg">
+
+                            <div>
+
+                                <h4>Neha Verma</h4>
+
+                                <small>EMP003</small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>Testing</td>
+
+                    <td>91%</td>
+
+                    <td>
+
+                        <span class="status leave">
+
+                            On Leave
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        
+
+                        <div class="employee-info">
+
+                            <img src="../assets/images/user4.jpg">
+
+                            <div>
+
+                                <h4>Sneha Patel</h4>
+
+                                <small>EMP004</small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>Support</td>
+
+                    <td>95%</td>
+
+                    <td>
+
+                        <span class="status active">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- Right Sidebar -->
+
+    <div class="dashboard-right">
+
+        <!-- Upcoming Deadlines -->
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <h2>Upcoming Deadlines</h2>
+
+            </div>
+
+            <ul class="deadline-list">
+
+                <li>
+
+                    <strong>CRM Integration</strong>
+
+                    <span>Tomorrow</span>
+
+                </li>
+
+                <li>
+
+                    <strong>Employee Review</strong>
+
+                    <span>22 Sept</span>
+
+                </li>
+
+                <li>
+
+                    <strong>Client Presentation</strong>
+
+                    <span>25 Sept</span>
+
+                </li>
+
+                <li>
+
+                    <strong>Server Upgrade</strong>
+
+                    <span>30 Sept</span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Notifications -->
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <h2>Notifications</h2>
+
+            </div>
+
+            <ul class="notification-list">
+
+                <li>
+
+                    🟢 New Employee Joined
+
+                </li>
+
+                <li>
+
+                    🔵 Payroll Generated
+
+                </li>
+
+                <li>
+
+                    🟡 Meeting at 3 PM
+
+                </li>
+
+                <li>
+
+                    🔴 Server Backup Required
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- Department Progress -->
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <h2>Department Progress</h2>
+
+            </div>
+
+            <div class="progress-item">
+
+                <span>Development</span>
+
+                <progress value="90" max="100"></progress>
+
+            </div>
+
+            <div class="progress-item">
+
+                <span>HR</span>
+
+                <progress value="82" max="100"></progress>
+
+            </div>
+
+            <div class="progress-item">
+
+                <span>Testing</span>
+
+                <progress value="95" max="100"></progress>
+
+            </div>
+
+            <div class="progress-item">
+
+                <span>Support</span>
+
+                <progress value="88" max="100"></progress>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========= PART 5 STARTS HERE ========= -->
+ <!-- ===================================== -->
+<!-- Last Dashboard Row -->
+<!-- ===================================== -->
+
+<section class="last-dashboard-row">
+
+    <!-- Calendar -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <h2>Calendar</h2>
+
+        </div>
+
+        <div class="calendar-widget">
+
+            <h3>September 2026</h3>
+
+            <table>
+
+                <tr>
+                    <th>S</th>
+                    <th>M</th>
+                    <th>T</th>
+                    <th>W</th>
+                    <th>T</th>
+                    <th>F</th>
+                    <th>S</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td class="today">12</td>
+                    <td>13</td>
+                </tr>
+
+                <tr>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                </tr>
+
+                <tr>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                </tr>
+
+                <tr>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Top Projects -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <h2>Top Projects</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+
+                <strong>Ricoz CRM</strong>
+
+                <span>92%</span>
+
+            </li>
+
+            <li>
+
+                <strong>HR Management</strong>
+
+                <span>84%</span>
+
+            </li>
+
+            <li>
+
+                <strong>Inventory System</strong>
+
+                <span>75%</span>
+
+            </li>
+
+            <li>
+
+                <strong>Finance Dashboard</strong>
+
+                <span>68%</span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- System Health -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <h2>System Health</h2>
+
+        </div>
+
+        <div class="health-item">
+
+            <span>Server</span>
+
+            <span class="online">🟢 Online</span>
+
+        </div>
+
+        <div class="health-item">
+
+            <span>Database</span>
+
+            <span class="online">🟢 Healthy</span>
+
+        </div>
+
+        <div class="health-item">
+
+            <span>Storage</span>
+
+            <span>78%</span>
+
+        </div>
+
+        <div class="health-item">
+
+            <span>API Status</span>
+
+            <span class="online">🟢 Running</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================== -->
+<!-- Footer -->
+<!-- ===================================== -->
+
+<footer class="footer">
+
+    <div>
+
+        © 2026 RicozOps | Business Operations Platform
+
+    </div>
+
+    <div>
+
+        Version 2.0.0
+
+    </div>
+
+</footer>
+
+</main>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+
+</body>
+
+</html>

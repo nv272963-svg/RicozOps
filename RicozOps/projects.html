@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | RicozOps</title>
+
+    <link rel="stylesheet" href="../assets/css/projects.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>RicozOps</h2>
+
+            <p>Business Operations</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+            <li class="active">
+
+                <a href="projects.html">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <span>Projects</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="employees.html">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Employees</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="tasks.html">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                    <span>Tasks</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Reports</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>Notifications</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+                Help Center
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= Main Content ================= -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search project, client, team...">
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button id="themeToggle" class="theme-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>7</span>
+
+                </div>
+
+                <div class="profile">
+
+                    <img src="../assets/images/user1.png" alt="Profile">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Project Manager</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Page Header -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Projects</h1>
+
+                <p>Track, manage and monitor all company projects.</p>
+
+            </div>
+
+            <div class="header-buttons">
+
+                <button class="export-btn">
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Export
+
+                </button>
+
+                <button class="add-btn">
+
+                    <i class="fa-solid fa-folder-plus"></i>
+
+                    New Project
+
+                </button>
+
+            </div>
+
+        </div>
+                <!-- ==========================================
+                PROJECT STATISTICS
+        =========================================== -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h3>Total Projects</h3>
+                    <h2 id="totalProjects">0</h2>
+                    <p>+5 This Month</p>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h3>Completed</h3>
+                    <h2 id="completedProjects">0</h2>
+                    <p>46% Completed</p>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h3>In Progress</h3>
+                    <h2 id="runningProjects">0</h2>
+                    <p>Currently Running</p>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h3>Delayed</h3>
+                    <h2 id="delayedProjects">0</h2>
+                    <p>Need Attention</p>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h3>Total Budget</h3>
+                    <h2 id="totalBudget">₹0</h2>
+                    <p>Allocated Budget</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+                FILTER BAR
+        =========================================== -->
+
+        <section class="filter-bar">
+
+            <div class="filter-left">
+
+                <input
+                    type="text"
+                    id="projectSearch"
+                    placeholder="Search Project...">
+
+                <select id="statusFilter">
+
+                    <option>All Status</option>
+
+                    <option>Planning</option>
+
+                    <option>In Progress</option>
+
+                    <option>Completed</option>
+
+                    <option>On Hold</option>
+
+                    <option>Delayed</option>
+
+                </select>
+
+                <select>
+
+                    <option>Priority</option>
+
+                    <option>High</option>
+
+                    <option>Medium</option>
+
+                    <option>Low</option>
+
+                </select>
+
+                <input type="date">
+
+            </div>
+
+            <div class="filter-right">
+
+                <button class="excel-btn">
+
+                    <i class="fa-solid fa-file-excel"></i>
+
+                    Excel
+
+                </button>
+
+                <button class="pdf-btn">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    PDF
+
+                </button>
+
+            </div>
+
+        </section>
+       
+
+
+                <!-- ==========================================
+                PROJECTS TABLE
+        =========================================== -->
+
+        <section class="project-table-section">
+
+            <div class="table-header">
+
+                <h2>Project Directory</h2>
+
+                <p id="projectCount">
+    Showing 0 Projects
+</p>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="project-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Project</th>
+
+                            <th>Client</th>
+
+                            <th>Team</th>
+
+                            <th>Progress</th>
+
+                            <th>Budget</th>
+
+                            <th>Deadline</th>
+
+                            <th>Status</th>
+
+                            <th>Priority</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                   <tbody id="projectTableBody">
+
+</tbody>
+                </table>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                ANALYTICS SECTION
+        =========================================== -->
+
+        <section class="analytics-section">
+
+            <div class="chart-card">
+
+                <h2>Monthly Project Performance</h2>
+
+                <canvas id="projectChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h2>Budget Distribution</h2>
+
+                <canvas id="budgetChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+                TIMELINE + TOP PROJECTS
+        =========================================== -->
+
+        <section class="bottom-section">
+
+            <!-- Timeline -->
+
+            <div class="timeline-card">
+
+                <h2>Project Timeline</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Planning Phase</h4>
+                            <p>Completed Successfully</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot active"></div>
+                        <div class="timeline-content">
+                            <h4>Development</h4>
+                            <p>Currently Running</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Testing</h4>
+                            <p>Starts Next Week</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Deployment</h4>
+                            <p>Scheduled</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Top Projects -->
+
+            <div class="top-projects">
+
+                <h2>Top Performing Projects</h2>
+
+                <div class="project-rank">
+
+                    <img src="../assets/images/project1.jpg">
+
+                    <div>
+
+                        <h4>Ricoz ERP</h4>
+
+                        <small>Performance 96%</small>
+
+                    </div>
+
+                    <span>⭐ 1</span>
+
+                </div>
+
+                <div class="project-rank">
+
+                    <img src="../assets/images/project2.jpg">
+
+                    <div>
+
+                        <h4>Hospital CRM</h4>
+
+                        <small>Performance 92%</small>
+
+                    </div>
+
+                    <span>⭐ 2</span>
+
+                </div>
+
+                <div class="project-rank">
+
+                    <img src="../assets/images/project3.jpg">
+
+                    <div>
+
+                        <h4>E-Commerce</h4>
+
+                        <small>Performance 89%</small>
+
+                    </div>
+
+                    <span>⭐ 3</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+                RISK PANEL
+        =========================================== -->
+
+        <section class="risk-section">
+
+            <div class="risk-card danger">
+
+                <h3>
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    Delayed Projects
+
+                </h3>
+
+                <ul>
+
+                    <li>ERP Mobile App</li>
+                    <li>Inventory Portal</li>
+                    <li>Finance Dashboard</li>
+
+                </ul>
+
+            </div>
+
+            <div class="risk-card warning">
+
+                <h3>
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Upcoming Deadlines
+
+                </h3>
+
+                <ul>
+
+                    <li>CRM Migration - 21 Sept</li>
+                    <li>Testing Phase - 24 Sept</li>
+                    <li>Client Demo - 28 Sept</li>
+
+                </ul>
+
+            </div>
+
+            <div class="risk-card success">
+
+                <h3>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Recently Completed
+
+                </h3>
+
+                <ul>
+
+                    <li>Hospital CRM</li>
+                    <li>Payroll System</li>
+                    <li>Company Website</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                QUICK ACTIONS + RECENT ACTIVITY
+        =========================================== -->
+
+        <section class="last-section">
+
+            <!-- Recent Activities -->
+
+            <div class="recent-activity">
+
+                <h2>Recent Activities</h2>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <strong>Hospital CRM Completed</strong>
+                            <small>Today • 10:15 AM</small>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-user-plus"></i>
+                        <div>
+                            <strong>New Developer Assigned</strong>
+                            <small>Yesterday • 04:20 PM</small>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-code-branch"></i>
+                        <div>
+                            <strong>ERP v2.0 Updated</strong>
+                            <small>2 Days Ago</small>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <div>
+                            <strong>Deployment Successful</strong>
+                            <small>3 Days Ago</small>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-comments"></i>
+                        <div>
+                            <strong>Client Feedback Received</strong>
+                            <small>5 Days Ago</small>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                PAGINATION
+        =========================================== -->
+
+        <div class="pagination">
+
+            <button>
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+
+            <button class="active">1</button>
+
+            <button>2</button>
+
+            <button>3</button>
+
+            <button>4</button>
+
+            <button>
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+        </div>
+
+        <!-- ==========================================
+                FOOTER
+        =========================================== -->
+
+        <footer class="footer">
+
+            <div>
+
+                <strong>RicozOps ERP</strong>
+
+                <p>
+                    Enterprise Project Management System
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>Version 2.0</p>
+
+                <p>© 2026 Ricoz Innovation Pvt. Ltd.</p>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Projects JS -->
+
+
+<!-- ================= PROJECT MODAL ================= -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-content">
+<span class="close-modal" id="closeProjectModal">&times;</span>
+        <h2 id="modalTitle">Add Project</h2>
+
+        <form id="projectForm">
+
+            <input type="hidden" id="project_db_id">
+<select id="department_id" required>
+    <option value="">Select Department</option>
+</select>
+            <input type="text" id="project_name" placeholder="Project Name" required>
+
+            <input type="text" id="project_code" placeholder="Project Code" required>
+
+            <input type="text" id="client_name" placeholder="Client Name" required>
+
+           <select id="project_manager" required>
+    <option value="">Select Project Manager</option>
+</select>
+<input type="text" id="project_name" placeholder="Project Name" required>
+            <input type="date" id="start_date" required>
+
+            <input type="date" id="end_date" required>
+
+            <input type="number" id="budget" placeholder="Budget" required>
+<input
+    type="number"
+    id="progress"
+    placeholder="Progress (%)"
+    min="0"
+    max="100"
+    value="0"
+    required>
+
+<select id="priority">
+    <option value="High">High</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="Low">Low</option>
+</select>
+            <select id="status">
+
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+
+            </select>
+
+            <textarea
+                id="description"
+                placeholder="Project Description">
+            </textarea>
+
+            <button type="submit" id="saveProjectBtn">
+
+                Save Project
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="../assets/js/projects.js"></script>
+</body>
+
+</html>

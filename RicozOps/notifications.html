@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | RicozOps</title>
+
+    <link rel="stylesheet" href="../assets/css/notifications.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>RicozOps</h2>
+
+            <p>Enterprise ERP</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <li onclick="location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </li>
+
+            <li onclick="location.href='projects.html'">
+
+                <i class="fa-solid fa-folder"></i>
+
+                <span>Projects</span>
+
+            </li>
+
+            <li onclick="location.href='employees.html'">
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>Employees</span>
+
+            </li>
+
+            <li onclick="location.href='tasks.html'">
+
+                <i class="fa-solid fa-list-check"></i>
+
+                <span>Tasks</span>
+
+            </li>
+
+            <li onclick="location.href='reports.html'">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>Reports</span>
+
+            </li>
+
+            <li class="active">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>Notifications</span>
+
+            </li>
+
+            <li onclick="location.href='settings.html'">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- ================= TOPBAR ================= -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="notificationSearch"
+                    placeholder="Search notifications...">
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div class="notification-icon">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="badge" id="notificationCount">8</span>
+
+                </div>
+
+                <div class="profile">
+
+                    <img src="../assets/images/user1.png" alt="User">
+
+                    <div>
+
+                        <h4>Nitin Varma</h4>
+
+                        <small>Administrator</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= PAGE HEADER ================= -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Notifications Center</h1>
+
+                <p>Manage system alerts, messages and updates.</p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button class="mark-all-btn">
+
+                    <i class="fa-solid fa-check-double"></i>
+
+                    Mark All Read
+
+                </button>
+
+                <button class="clear-btn">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Clear All
+
+                </button>
+
+            </div>
+
+        </div>
+                <!-- ==========================================
+                FILTER BAR
+        ========================================== -->
+
+        <section class="filter-bar">
+
+            <div class="filter-left">
+
+                <button class="filter-btn active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-btn" data-filter="unread">
+                    Unread
+                </button>
+
+                <button class="filter-btn" data-filter="read">
+                    Read
+                </button>
+
+                <button class="filter-btn" data-filter="important">
+                    Important
+                </button>
+
+            </div>
+
+            <div class="filter-right">
+
+                <select id="priorityFilter">
+
+                    <option value="all">All Priority</option>
+
+                    <option value="high">High</option>
+
+                    <option value="medium">Medium</option>
+
+                    <option value="low">Low</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                NOTIFICATION LIST
+        ========================================== -->
+
+        <!-- ==========================================
+        NOTIFICATION LIST
+========================================== -->
+
+<section class="notification-list" id="notificationList">
+
+</section>
+                <!-- ==========================================
+                DASHBOARD GRID
+        ========================================== -->
+
+        <section class="notification-grid">
+
+            <!-- ================= IMPORTANT ================= -->
+
+            <div class="info-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-star"></i>
+
+                        Important Notifications
+
+                    </h2>
+
+                </div>
+
+                <div class="important-list">
+
+                    <div class="important-item">
+
+                        <span class="priority high"></span>
+
+                        <div>
+
+                            <h4>Server Maintenance</h4>
+
+                            <p>Scheduled on Sunday 11:00 PM</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="important-item">
+
+                        <span class="priority medium"></span>
+
+                        <div>
+
+                            <h4>Monthly Payroll</h4>
+
+                            <p>Salary processing starts tomorrow</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="important-item">
+
+                        <span class="priority low"></span>
+
+                        <div>
+
+                            <h4>Attendance Reminder</h4>
+
+                            <p>Submit attendance before 6 PM</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= PINNED ================= -->
+
+            <div class="info-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-thumbtack"></i>
+
+                        Pinned Notifications
+
+                    </h2>
+
+                </div>
+
+                <div class="pinned-list">
+
+                    <div class="pinned-item">
+
+                        📌 ERP Version 2.0 Successfully Installed
+
+                    </div>
+
+                    <div class="pinned-item">
+
+                        📌 Company Annual Meeting
+
+                    </div>
+
+                    <div class="pinned-item">
+
+                        📌 Security Policy Updated
+
+                    </div>
+
+                    <div class="pinned-item">
+
+                        📌 Project Submission Deadline
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                STATISTICS
+        ========================================== -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <h2>128</h2>
+
+                <p>Total Notifications</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-envelope-open"></i>
+
+                <h2>97</h2>
+
+                <p>Read</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h2>31</h2>
+
+                <p>Unread</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h2>14</h2>
+
+                <p>Important</p>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                TODAY'S ACTIVITY
+        ========================================== -->
+
+        <section class="activity-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    Today's Activity
+
+                </h2>
+
+            </div>
+
+            <ul class="activity-list">
+
+                <li>
+
+                    <span>09:00 AM</span>
+
+                    Employee attendance updated
+
+                </li>
+
+                <li>
+
+                    <span>10:30 AM</span>
+
+                    New project assigned
+
+                </li>
+
+                <li>
+
+                    <span>12:45 PM</span>
+
+                    HR announcement published
+
+                </li>
+
+                <li>
+
+                    <span>02:15 PM</span>
+
+                    Weekly report generated
+
+                </li>
+
+                <li>
+
+                    <span>04:10 PM</span>
+
+                    Database backup completed
+
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- ==========================================
+                QUICK ACTIONS
+        ========================================== -->
+
+        <section class="quick-actions">
+
+            <button class="quick-btn">
+
+                <i class="fa-solid fa-envelope-open"></i>
+
+                Mark All Read
+
+            </button>
+
+            <button class="quick-btn">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear All
+
+            </button>
+
+            <button class="quick-btn">
+
+                <i class="fa-solid fa-download"></i>
+
+                Export Notifications
+
+            </button>
+
+            <button class="quick-btn">
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </section>
+                <!-- ==========================================
+                ANALYTICS SECTION
+        ========================================== -->
+
+        <section class="analytics-grid">
+
+            <!-- Notification Analytics -->
+
+            <div class="analytics-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        Notification Analytics
+
+                    </h2>
+
+                </div>
+
+                <canvas id="notificationChart"></canvas>
+
+            </div>
+
+            <!-- User Activity -->
+
+            <div class="analytics-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-users"></i>
+
+                        Recent User Activity
+
+                    </h2>
+
+                </div>
+
+                <ul class="user-activity">
+
+                    <li>
+
+                        <img src="../assets/images/user1.png" alt="">
+
+                        <div>
+
+                            <h4>Nitin Varma</h4>
+
+                            <p>Completed ERP Dashboard</p>
+
+                        </div>
+
+                        <span>2 min</span>
+
+                    </li>
+
+                    <li>
+
+                        <img src="../assets/images/user2.jpg" alt="">
+
+                        <div>
+
+                            <h4>Neha Sharma</h4>
+
+                            <p>Updated Employee Records</p>
+
+                        </div>
+
+                        <span>10 min</span>
+
+                    </li>
+
+                    <li>
+
+                        <img src="../assets/images/user3.jpg" alt="">
+
+                        <div>
+
+                            <h4>Rahul Sharma</h4>
+
+                            <p>Created New Project</p>
+
+                        </div>
+
+                        <span>25 min</span>
+
+                    </li>
+
+                    <li>
+
+                        <img src="../assets/images/user4.jpg" alt="">
+
+                        <div>
+
+                            <h4>Priya Singh</h4>
+
+                            <p>Submitted Weekly Report</p>
+
+                        </div>
+
+                        <span>40 min</span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                SYSTEM LOGS
+        ========================================== -->
+
+        <section class="logs-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-terminal"></i>
+
+                    System Logs
+
+                </h2>
+
+            </div>
+
+            <table class="logs-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Time</th>
+
+                        <th>Event</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>09:30 AM</td>
+
+                        <td>Database Backup Completed</td>
+
+                        <td><span class="success">Success</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>10:15 AM</td>
+
+                        <td>User Login Detected</td>
+
+                        <td><span class="info">Info</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>11:45 AM</td>
+
+                        <td>Payroll Generated</td>
+
+                        <td><span class="success">Success</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>01:10 PM</td>
+
+                        <td>Server CPU High Usage</td>
+
+                        <td><span class="warning">Warning</span></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>02:50 PM</td>
+
+                        <td>Security Scan Completed</td>
+
+                        <td><span class="success">Success</span></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- ==========================================
+                UPCOMING EVENTS
+        ========================================== -->
+
+        <section class="events-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Upcoming Events
+
+                </h2>
+
+            </div>
+
+            <div class="event-list">
+
+                <div class="event-item">
+
+                    <h4>📅 Team Meeting</h4>
+
+                    <p>20 Sept • 10:00 AM</p>
+
+                </div>
+
+                <div class="event-item">
+
+                    <h4>🚀 Project Launch</h4>
+
+                    <p>22 Sept • 09:00 AM</p>
+
+                </div>
+
+                <div class="event-item">
+
+                    <h4>💼 Client Presentation</h4>
+
+                    <p>24 Sept • 03:30 PM</p>
+
+                </div>
+
+                <div class="event-item">
+
+                    <h4>📊 Monthly Review</h4>
+
+                    <p>30 Sept • 11:00 AM</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                STORAGE STATUS
+        ========================================== -->
+
+        <section class="storage-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-database"></i>
+
+                    Notification Storage
+
+                </h2>
+
+            </div>
+
+            <div class="storage-box">
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill" style="width:72%;"></div>
+
+                </div>
+
+                <p><strong>72%</strong> Storage Used (3.6 GB of 5 GB)</p>
+
+            </div>
+
+        </section>
+                <!-- ==========================================
+                NOTIFICATION SETTINGS
+        ========================================== -->
+
+        <section class="settings-shortcut">
+
+            <div class="settings-card">
+
+                <div class="settings-left">
+
+                    <i class="fa-solid fa-sliders"></i>
+
+                    <div>
+
+                        <h2>Notification Settings</h2>
+
+                        <p>
+                            Customize email alerts, push notifications,
+                            sounds and reminder preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button class="settings-btn"
+                        onclick="location.href='settings.html'">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Open Settings
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+                FOOTER
+        ========================================== -->
+
+        <footer class="footer">
+
+            <div class="footer-left">
+
+                <h3>RicozOps ERP</h3>
+
+                <p>
+                    Enterprise Resource Planning System
+                </p>
+
+            </div>
+
+            <div class="footer-center">
+
+                <p>
+
+                    <i class="fa-regular fa-copyright"></i>
+
+                    2026 Ricoz Innovation Pvt. Ltd.
+
+                </p>
+
+            </div>
+
+            <div class="footer-right">
+
+                <a href="#">
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ==========================================
+        CHART.JS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    console.log("Chart =", typeof Chart);
+</script>
+<!-- ==========================================
+        NOTIFICATIONS JS
+========================================== -->
+
+<script src="../assets/js/notifications.js"></script>
+
+</body>
+
+</html>

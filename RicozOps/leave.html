@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RicozOps | Leave Management</title>
+
+    <link rel="stylesheet"
+      href="../assets/css/leave.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+
+
+<div class="container">
+
+    <!-- ==========================
+            SIDEBAR
+    =========================== -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h2>RicozOps</h2>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i class="fas fa-home"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="employees.html">
+
+                        <i class="fas fa-users"></i>
+
+                        Employees
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="departments.html">
+
+                        <i class="fas fa-building"></i>
+
+                        Departments
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="projects.html">
+
+                        <i class="fas fa-folder"></i>
+
+                        Projects
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="tasks.html">
+
+                        <i class="fas fa-list-check"></i>
+
+                        Tasks
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="attendance.html">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                        Attendance
+
+                    </a>
+
+                </li>
+
+                <li class="active">
+
+                    <a href="leave.html">
+
+                        <i class="fas fa-calendar-minus"></i>
+
+                        Leave
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="reports.html">
+
+                        <i class="fas fa-chart-line"></i>
+
+                        Reports
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="settings.html">
+
+                        <i class="fas fa-gear"></i>
+
+                        Settings
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- ==========================
+            MAIN CONTENT
+    =========================== -->
+
+    <main class="main-content">
+        <div class="topbar">
+
+    <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search Leave...">
+    </div>
+
+    <div class="topbar-right">
+
+        <button class="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="notification">
+            <i class="fa-solid fa-bell"></i>
+            <span>4</span>
+        </div>
+
+        <div class="profile">
+
+            <img src="../assets/images/user1.png" alt="Profile">
+
+            <div>
+                <h4>Nitin Varma</h4>
+                <small>Project Manager</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="page-header">
+
+            <h1>
+
+                Leave Management
+
+            </h1>
+
+        </div>
+                <!-- ==========================
+                HEADER ACTIONS
+        =========================== -->
+
+        <div class="header-actions">
+
+            <input
+                type="text"
+                id="searchLeave"
+                placeholder="Search Employee...">
+
+            <button id="exportLeaveBtn">
+
+                <i class="fas fa-file-pdf"></i>
+
+                Export PDF
+
+            </button>
+
+            <button id="addLeaveBtn">
+
+                <i class="fas fa-plus"></i>
+
+                Apply Leave
+
+            </button>
+
+        </div>
+
+        <!-- ==========================
+                DASHBOARD CARDS
+        =========================== -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Total Leaves</h3>
+
+                <h2 id="totalLeaves">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Pending</h3>
+
+                <h2 id="pendingLeaves">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Approved</h3>
+
+                <h2 id="approvedLeaves">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Rejected</h3>
+
+                <h2 id="rejectedLeaves">0</h2>
+
+            </div>
+
+        </div>
+                <!-- ==========================
+                LEAVE TABLE
+        =========================== -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Employee</th>
+
+                        <th>Leave Type</th>
+
+                        <th>Start Date</th>
+
+                        <th>End Date</th>
+
+                        <th>Total Days</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="leaveTableBody">
+
+                    <!-- Data from JavaScript -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+<footer class="footer">
+
+    <div>
+        © 2026 <strong>RicozOps ERP</strong>
+    </div>
+
+    <div>
+        Version 2.0.0
+    </div>
+
+</footer>
+    </main>
+        <!-- ==========================
+            APPLY LEAVE MODAL
+    =========================== -->
+
+    <div class="modal" id="leaveModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+
+                    Apply Leave
+
+                </h2>
+
+                <span id="closeModal">&times;</span>
+
+            </div>
+
+            <form id="leaveForm">
+
+                <input
+                    type="hidden"
+                    id="leave_db_id">
+
+                <div class="form-group">
+
+                    <label>Employee</label>
+
+                    <select id="employee_id" required>
+
+                        <option value="">Select Employee</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Leave Type</label>
+
+                    <select id="leave_type" required>
+
+                        <option value="">Select Leave Type</option>
+
+                        <option>Casual Leave</option>
+
+                        <option>Sick Leave</option>
+
+                        <option>Paid Leave</option>
+
+                        <option>Emergency Leave</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Start Date</label>
+
+                   <input
+type="date"
+id="start_date"
+required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>End Date</label>
+
+                    <input
+type="date"
+id="end_date"
+required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Total Days</label>
+
+                    <input
+                        type="number"
+                        id="total_days"
+                        readonly>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Reason</label>
+
+                   <textarea
+id="reason"
+rows="4"
+required></textarea>
+
+                </div>
+<div class="form-group">
+
+    <label>Status</label>
+
+    <select id="status">
+
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Rejected</option>
+
+    </select>
+
+</div>
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        id="cancelBtn">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveLeaveBtn">
+
+                        Save Leave
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+        <!-- ==========================
+            JAVASCRIPT FILES
+    =========================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="../assets/js/leave.js"></script>
+
+</body>
+
+</html>
