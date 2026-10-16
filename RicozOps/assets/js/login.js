@@ -1,28 +1,57 @@
 console.log("LOGIN JS LOADED");
 
+const API_URL = "https://ricozops.onrender.com";
+
 const loginForm = document.getElementById("loginForm");
 
-loginForm.addEventListener("submit", function (e) {
+loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (email === "" || password === "") {
+    if (!email || !password) {
         alert("Please enter Email and Password");
         return;
     }
 
-    // Dummy Login
-    localStorage.setItem("token", "demo-token");
-    localStorage.setItem("user", JSON.stringify({
-        name: "Admin",
-        email: email
-    }));
+    try {
 
-    alert("Login Successful");
+        const response = await fetch(`${API_URL}/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
 
-    window.location.href = "dashboard.html";
+        const data = await response.json();
+
+        if (data.success) {
+
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+
+            alert("Login Successful");
+
+            window.location.href = "dashboard.html";
+
+        } else {
+
+            alert(data.message);
+
+        }
+
+    } catch (err) {
+
+        console.error(err);
+        alert("Server Connection Failed");
+
+    }
+
 });
 
 const forgotLink = document.getElementById("forgotPasswordLink");
