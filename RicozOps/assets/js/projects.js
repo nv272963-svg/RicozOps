@@ -512,7 +512,7 @@ async function fetchEmployees() {
 
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/employees", {
+        const response = await fetch("https://ricozops-production.up.railway.app/api/employees", {
 
             headers: {
                 "Authorization": "Bearer " + token
@@ -579,7 +579,7 @@ async function loadProjects() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/projects");
+        const response = await fetch("https://ricozops-production.up.railway.app/api/projects");
 
         const data = await response.json();
 
@@ -748,7 +748,7 @@ async function fetchDepartments() {
 
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/departments", {
+        const response = await fetch("https://ricozops-production.up.railway.app/api/departments", {
 
             headers: {
                 "Authorization": "Bearer " + token
@@ -788,7 +788,7 @@ async function editProject(id) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/projects");
+        const response = await fetch("https://ricozops-production.up.railway.app/api/projects");
 
         const data = await response.json();
 
@@ -857,8 +857,8 @@ try {
     const response = await fetch(
 
         isEdit
-            ? `http://localhost:5000/api/projects/update/${id}`
-            : "http://localhost:5000/api/projects/add",
+            ? `https://ricozops-production.up.railway.app/api/projects/update/${id}`
+            : "https://ricozops-production.up.railway.app/api/projects/add",
 
         {
 
@@ -918,7 +918,7 @@ async function deleteProject(id) {
 
         const response = await fetch(
 
-            `http://localhost:5000/api/projects/delete/${id}`,
+            `https://ricozops-production.up.railway.app/api/projects/delete/${id}`,
 
             {
                 method: "DELETE",
@@ -956,7 +956,7 @@ async function viewProject(id) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/projects");
+        const response = await fetch("https://ricozops-production.up.railway.app/api/projects");
 
         const data = await response.json();
 

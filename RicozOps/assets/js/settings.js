@@ -4,7 +4,7 @@
    Version : 5.0 Final
 ========================================================== */
 
-const API_URL = "http://localhost:5000/api/settings";
+const API_URL = "https://ricozops-production.up.railway.app/api/settings";
 
 /* ==========================================================
    GLOBAL VARIABLES
