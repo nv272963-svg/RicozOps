@@ -19,9 +19,7 @@ const db = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0,
 
-    ssl: {
-        rejectUnauthorized: false
-    }
+   
 });
 
 // Test Connection
@@ -37,3 +35,13 @@ const db = mysql.createPool({
 })();
 
 module.exports = db;
+(async () => {
+    try {
+        const connection = await db.getConnection();
+        console.log("✅ MySQL Connected Successfully");
+        connection.release();
+    } catch (err) {
+        console.error("❌ Database Connection Failed");
+        console.error(err);
+    }
+})();
