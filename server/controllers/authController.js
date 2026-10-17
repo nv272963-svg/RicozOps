@@ -11,9 +11,7 @@ const {
 // =========================
 
 const register = async (req, res) => {
-
     try {
-
         const { full_name, email, password, role } = req.body;
 
         if (!full_name || !email || !password) {
@@ -23,55 +21,36 @@ const register = async (req, res) => {
             });
         }
 
-        findUserByEmail(email, async (err, result) => {
+        const existingUser = await findUserByEmail(email);
 
-            if (err) {
-                return res.status(500).json(err);
-            }
+        if (existingUser.length > 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Email already exists."
+            });
+        }
 
-            if (result.length > 0) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Email already exists."
-                });
-            }
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-            const hashedPassword = await bcrypt.hash(password, 10);
-
-            createUser(
-                {
-                    full_name,
-                    email,
-                    password: hashedPassword,
-                    role: role || "Employee"
-                },
-                (err) => {
-
-                    if (err) {
-                        return res.status(500).json(err);
-                    }
-
-                    return res.status(201).json({
-                        success: true,
-                        message: "Registration Successful"
-                    });
-
-                }
-            );
-
+        await createUser({
+            full_name,
+            email,
+            password: hashedPassword,
+            role: role || "Employee"
         });
 
-    } catch (error) {
+        return res.status(201).json({
+            success: true,
+            message: "Registration Successful"
+        });
 
+    } catch (err) {
         return res.status(500).json({
             success: false,
-            message: error.message
+            message: err.message
         });
-
     }
-
 };
-
 // =========================
 // Login User
 // =========================
