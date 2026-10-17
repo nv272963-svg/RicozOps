@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const db = require("../config/db");
 
 // ==========================================
@@ -185,27 +186,29 @@ exports.updateSecurity = async (req, res) => {
         }
 
         // Password Match Check
-        if (rows[0].password !== current_password) {
+       const match = await bcrypt.compare(
+    current_password,
+    rows[0].password
+);
 
-            return res.json({
+if (!match) {
 
-                success: false,
-                message: "Current Password is Incorrect"
+    return res.json({
+        success: false,
+        message: "Current Password is Incorrect"
+    });
 
-            });
-
-        }
+}
 
         // Password Update
-        await db.query(
+       const hashedPassword = await bcrypt.hash(new_password, 10);
 
-            `UPDATE settings
-             SET password = ?
-             WHERE id = 1`,
-
-            [new_password]
-
-        );
+await db.query(
+    `UPDATE settings
+     SET password = ?
+     WHERE id = 1`,
+    [hashedPassword]
+);
 
         res.json({
 

@@ -1,16 +1,27 @@
 const express = require("express");
 const router = express.Router();
 
-console.log("LEAVE ROUTES FILE RUNNING");
-
+const verifyToken = require("../middleware/authMiddleware");
 const leaveController = require("../controllers/leaveController");
 
-console.log(leaveController);
+// Test
+router.get("/test", (req, res) => {
+    res.send("Leave Route Working");
+});
 
-// ================= ADD LEAVE =================
-router.post("/add", leaveController.addLeave);
-router.get("/", leaveController.getLeaves);
-router.put("/update/:id", leaveController.updateLeave);
-router.delete("/delete/:id", leaveController.deleteLeave);
-router.put("/approve/:id", leaveController.approveLeave);
+// Add Leave
+router.post("/add", verifyToken, leaveController.addLeave);
+
+// Get Leaves
+router.get("/", verifyToken, leaveController.getLeaves);
+
+// Update Leave
+router.put("/update/:id", verifyToken, leaveController.updateLeave);
+
+// Delete Leave
+router.delete("/delete/:id", verifyToken, leaveController.deleteLeave);
+
+// Approve / Reject Leave
+router.put("/approve/:id", verifyToken, leaveController.approveLeave);
+
 module.exports = router;

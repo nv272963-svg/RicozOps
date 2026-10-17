@@ -1,7 +1,5 @@
 const db = require("../config/db");
 
-module.exports = db;
-const db = require("../config/db");
 
 // Get All Attendance
 async function getAllAttendance() {

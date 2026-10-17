@@ -1,34 +1,27 @@
 const express = require("express");
-
 const router = express.Router();
 
+const verifyToken = require("../middleware/authMiddleware");
 const settingsController = require("../controllers/settingsController");
 
-// ==============================
-// GET SETTINGS
-// ==============================
+// Test
+router.get("/test", (req, res) => {
+    res.send("Settings Route Working");
+});
 
-router.get("/", settingsController.getSettings);
+// Get Settings
+router.get("/", verifyToken, settingsController.getSettings);
 
-// ==============================
-// UPDATE PROFILE
-// ==============================
+// Update Profile
+router.put("/profile", verifyToken, settingsController.updateProfile);
 
-router.put("/profile", settingsController.updateProfile);
+// Update Company
+router.put("/company", verifyToken, settingsController.updateCompany);
 
-// ==============================
-// UPDATE COMPANY
-// ==============================
+// Update Security
+router.put("/security", verifyToken, settingsController.updateSecurity);
 
-router.put("/company", settingsController.updateCompany);
-// ==============================
-// UPDATE SECURITY
-// ==============================
+// Update Appearance
+router.put("/appearance", verifyToken, settingsController.updateAppearance);
 
-router.put("/security", settingsController.updateSecurity);
-// ==============================
-// UPDATE APPEARANCE
-// ==============================
-
-router.put("/appearance", settingsController.updateAppearance);
 module.exports = router;

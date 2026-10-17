@@ -139,7 +139,13 @@ exports.updateAttendance = async (req, res) => {
                 id
             ]
         );
-console.log("INSERT SUCCESS");
+        if (result.affectedRows === 0) {
+    return res.status(404).json({
+        success: false,
+        message: "Attendance not found"
+    });
+}
+console.log("UPDATE SUCCESS");
 console.log(result);
         return res.status(200).json({
             success: true,
@@ -172,10 +178,17 @@ exports.deleteAttendance = async (req, res) => {
 
     try {
 
-        await db.execute(
-            "DELETE FROM attendance WHERE id = ?",
-            [id]
-        );
+        const [result] = await db.execute(
+    "DELETE FROM attendance WHERE id = ?",
+    [id]
+);
+
+if (result.affectedRows === 0) {
+    return res.status(404).json({
+        success: false,
+        message: "Attendance not found"
+    });
+}
 
         return res.status(200).json({
             success: true,

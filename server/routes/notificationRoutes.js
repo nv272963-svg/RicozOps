@@ -1,53 +1,19 @@
-console.log("NOTIFICATION ROUTES FILE RUNNING");
 const express = require("express");
-
 const router = express.Router();
 
+const verifyToken = require("../middleware/authMiddleware");
 const notificationController = require("../controllers/notificationController");
 
-// ==========================================
-// GET ALL NOTIFICATIONS
-// ==========================================
+console.log("NOTIFICATION ROUTES FILE RUNNING");
 
-router.get(
-    "/",
-    notificationController.getNotifications
-);
+router.get("/test", (req, res) => {
+    res.send("Notification Route Working");
+});
 
-// ==========================================
-// ADD NOTIFICATION
-// ==========================================
+router.post("/add", verifyToken, notificationController.addNotification);
 
-router.post(
-    "/",
-    notificationController.addNotification
-);
+router.get("/", verifyToken, notificationController.getNotifications);
 
-// ==========================================
-// UPDATE NOTIFICATION
-// ==========================================
-
-router.put(
-    "/:id",
-    notificationController.updateNotification
-);
-
-// ==========================================
-// MARK AS READ
-// ==========================================
-
-router.put(
-    "/read/:id",
-    notificationController.markAsRead
-);
-
-// ==========================================
-// DELETE NOTIFICATION
-// ==========================================
-
-router.delete(
-    "/:id",
-    notificationController.deleteNotification
-);
+router.delete("/delete/:id", verifyToken, notificationController.deleteNotification);
 
 module.exports = router;
