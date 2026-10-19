@@ -20,6 +20,7 @@ const attendanceRoutes = require("./routes/attendanceRoutes");
 const leaveRoutes = require("./routes/leaveRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const settingsRoutes = require("./routes/settingsRoutes");
+
 // Register Routes
 app.use("/api/auth", authRoutes);
 console.log("✅ Dashboard Routes Registered");

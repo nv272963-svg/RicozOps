@@ -111,13 +111,15 @@ exports.getDashboardAnalytics = async (req, res) => {
         `);
 
         // Employees by Department
-        const [departments] = await db.execute(`
-            SELECT
-                department,
-                COUNT(*) AS total
-            FROM employees
-            GROUP BY department
-        `);
+      /*  const [departments] = await db.execute(`
+SELECT
+departments.department_name,
+COUNT(employees.id) AS total
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.id
+GROUP BY departments.department_name
+`); */
 // Task Status
 const [tasks] = await db.execute(`
     SELECT
