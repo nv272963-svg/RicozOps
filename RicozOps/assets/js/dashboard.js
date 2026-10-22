@@ -9,11 +9,7 @@
 const token = localStorage.getItem("token");
 
 if (!token) {
-
-    alert("Please login first.");
-
     window.location.href = "login.html";
-
 }
 
 // ============================
@@ -32,7 +28,7 @@ async function loadDashboard() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/stats",
+            "https://ricozops.onrender.com/api/dashboard/stats",
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -76,7 +72,7 @@ async function loadAnalytics() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/analytics",
+            "https://ricozops.onrender.com/api/dashboard/analytics",
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -551,7 +547,7 @@ async function loadRecentActivities() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/activities",
+            "https://ricozops.onrender.com/api/dashboard/activities",
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -626,3 +622,17 @@ document.querySelectorAll(".action-card")[4].onclick = () => {
 document.querySelectorAll(".action-card")[5].onclick = () => {
     alert("Schedule Meeting Feature Coming Soon");
 };
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (confirm("Are you sure you want to logout?")) {
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+
+            window.location.href = "login.html";
+        }
+    });
+}
