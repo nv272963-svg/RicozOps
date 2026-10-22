@@ -54,7 +54,11 @@ console.log("loadSettings Started");
 
     try {
 console.log("Before Fetch");
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL, {
+    headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+    }
+});
 console.log("After Fetch", response.status);
         const result = await response.json();
 console.log(result);
@@ -274,12 +278,10 @@ async function saveProfile(e) {
 
             method: "PUT",
 
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
-
+          headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`
+},
             body: JSON.stringify(data)
 
         });
@@ -351,11 +353,10 @@ async function saveCompany(e) {
 
             method: "PUT",
 
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
+           headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`
+},
 
             body: JSON.stringify(data)
 
@@ -416,9 +417,10 @@ async function saveSecurity(e) {
             `${API_URL}/security`,
             {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+              headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`
+},
                 body: JSON.stringify({
 
                     current_password,
@@ -474,9 +476,10 @@ async function saveAppearance(e) {
             `${API_URL}/appearance`,
             {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+               headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`
+},
                 body: JSON.stringify({
 
                     theme,
