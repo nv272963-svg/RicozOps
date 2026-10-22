@@ -95,9 +95,22 @@ exports.getEmployees = async (req, res) => {
 
     try {
 
-        const [employees] = await db.execute(
-            "SELECT * FROM employees ORDER BY id DESC"
-        );
+       const [employees] = await db.execute(`
+SELECT
+e.id,
+e.full_name,
+e.email,
+e.phone,
+e.designation,
+e.salary,
+e.joining_date,
+e.status,
+d.department_name
+FROM employees e
+LEFT JOIN departments d
+ON e.department_id = d.id
+ORDER BY e.id DESC
+`);
 
         console.log("Employees:", employees);
 

@@ -566,7 +566,7 @@ console.log("Keys:", Object.keys(emp));
 
                     <td><strong>${emp.full_name}</strong></td>
 
-                    <td>${emp.department}</td>
+                    <td>${emp.department_name}</td>
 
                     <td>${emp.designation}</td>
 
