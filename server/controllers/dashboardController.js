@@ -148,7 +148,10 @@ const [tasks] = await db.execute(`
 
     } catch (err) {
 
-        console.log(err);
+        console.error("Dashboard Analytics Error:");
+console.error(err);
+console.error(err.sqlMessage);
+console.error(err.sql);
 
         res.status(500).json({
 
