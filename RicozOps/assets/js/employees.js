@@ -397,11 +397,13 @@ if (exportExcel) {
         ADD EMPLOYEE
 ========================================== */
 
-const addEmployeeBtn = document.query(".add-btn");
+const addEmployeeBtn = document.querySelector("#addEmployeeBtn");
 
 if (addEmployeeBtn) {
 
     addEmployeeBtn.addEventListener("click", () => {
+
+        console.log("Add Employee Button Clicked");
 
         showToast("Add Employee page coming soon.");
 

@@ -54,9 +54,11 @@ console.log("loadSettings Started");
 
     try {
 console.log("Before Fetch");
-        const response = await fetch(API_URL, {
+       const token = localStorage.getItem("token");
+
+const response = await fetch(API_URL, {
     headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`
+        "Authorization": `Bearer ${token}`
     }
 });
 console.log("After Fetch", response.status);
@@ -126,14 +128,14 @@ console.log("settingsData =", settingsData);
     companyForm.querySelector("[name='company_name']").value =
         settingsData.company_name || "";
 
-    companyForm.querySelector("[name='website']").value =
-        settingsData.website || "";
+   companyForm.querySelector("[name='website']").value =
+settingsData.website || "";
 
-    companyForm.querySelector("[name='support_email']").value =
-        settingsData.support_email || "";
+companyForm.querySelector("[name='support_email']").value =
+settingsData.company_email || "";
 
-    companyForm.querySelector("[name='address']").value =
-        settingsData.address || "";
+companyForm.querySelector("[name='address']").value =
+settingsData.company_address || "";
 
 }
 
