@@ -120,6 +120,8 @@ LEFT JOIN employees e
 ON d.id = e.department_id
 GROUP BY d.id, d.department_name
 `);
+console.log("Departments Query Executed");
+console.log(departments);
 // Task Status
 const [tasks] = await db.execute(`
     SELECT
