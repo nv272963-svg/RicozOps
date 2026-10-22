@@ -28,7 +28,7 @@ async function loadDashboard() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/stats",
+            "https://ricozops-1.onrender.com/api/dashboard/stats",
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -72,7 +72,7 @@ async function loadAnalytics() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/analytics",
+            "https://ricozops-1.onrender.com/api/dashboard/analytics",
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -547,7 +547,7 @@ async function loadRecentActivities() {
     try {
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/dashboard/activities",
+            "https://ricozops-1.onrender.com/api/dashboard/activities",
             {
                 headers: {
                     Authorization: "Bearer " + token

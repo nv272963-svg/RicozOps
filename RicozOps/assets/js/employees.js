@@ -524,7 +524,7 @@ async function loadEmployees() {
 
         const token = localStorage.getItem("token");
 
-        const response = await fetch("https://ricozops-production.up.railway.app/api/employees", {
+        const response = await fetch("https://ricozops-1.onrender.com/api/employees", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + token
@@ -657,7 +657,7 @@ document.querySelectorAll(".delete").forEach(button => {
 
         try {
 
-            const response = await fetch(`https://ricozops-production.up.railway.app/api/employees/delete/${id}`, {
+            const response = await fetch(`https://ricozops-1.onrender.com/api/employees/delete/${id}`, {
 
                 method: "DELETE",
 
@@ -774,8 +774,8 @@ const isEdit = id !== "";
            const response = await fetch(
 
     isEdit
-        ? `https://ricozops-production.up.railway.app/api/employees/update/${id}`
-        : "https://ricozops-production.up.railway.app/api/employees/add",
+        ? `https://ricozops-1.onrender.com/api/employees/update/${id}`
+        : "https://ricozops-1.onrender.com/api/employees/add",
 
     {
 

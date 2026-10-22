@@ -674,8 +674,8 @@ try {
     const response = await fetch(
 
         isEdit
-            ? `https://ricozops-production.up.railway.app/api/tasks/update/${id}`
-            : "https://ricozops-production.up.railway.app/api/tasks/add",
+            ? `https://ricozops-1.onrender.com/api/tasks/update/${id}`
+            : "https://ricozops-1.onrender.com/api/tasks/add",
 
         {
 
@@ -734,7 +734,7 @@ async function loadTasks() {
 
     try {
 
-        const response = await fetch("https://ricozops-production.up.railway.app/api/tasks");
+        const response = await fetch("https://ricozops-1.onrender.com/api/tasks");
 
         const data = await response.json();
 
@@ -830,7 +830,7 @@ async function editTask(id) {
 
     try {
 
-        const response = await fetch("https://ricozops-production.up.railway.app/api/tasks");
+        const response = await fetch("https://ricozops-1.onrender.com/api/tasks");
 
         const data = await response.json();
 
@@ -871,7 +871,7 @@ async function deleteTask(id) {
 
         const response = await fetch(
 
-            `https://ricozops-production.up.railway.app/api/tasks/delete/${id}`,
+            `https://ricozops-1.onrender.com/api/tasks/delete/${id}`,
 
             {
 
@@ -910,7 +910,7 @@ async function deleteTask(id) {
 }
 async function viewTask(id){
 
-    const response=await fetch("https://ricozops-production.up.railway.app/api/tasks");
+    const response=await fetch("https://ricozops-1.onrender.com/api/tasks");
 
     const data=await response.json();
 
@@ -949,7 +949,7 @@ async function fetchEmployees() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            "https://ricozops-production.up.railway.app/api/employees",
+            "https://ricozops-1.onrender.com/api/employees",
             {
                 headers: {
                     "Authorization": "Bearer " + token
@@ -985,7 +985,7 @@ async function fetchProjects() {
 
     try {
 
-        const response = await fetch("https://ricozops-production.up.railway.app/api/projects");
+        const response = await fetch("https://ricozops-1.onrender.com/api/projects");
 
         const data = await response.json();
 
@@ -1015,7 +1015,7 @@ async function loadProjectFilter() {
 
     try {
 
-        const response = await fetch("https://ricozops-production.up.railway.app/api/projects");
+        const response = await fetch("https://ricozops-1.onrender.com/api/projects");
 
         const data = await response.json();
 

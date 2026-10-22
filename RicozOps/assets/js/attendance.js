@@ -7,7 +7,7 @@
 // API URL
 // ------------------------------
 const token = localStorage.getItem("token");
-const API_URL = "https://ricozops-production.up.railway.app/api";
+const API_URL = "https://ricozops-1.onrender.com/api";
 
 // ------------------------------
 // Global Variables
