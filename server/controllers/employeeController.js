@@ -133,7 +133,8 @@ ORDER BY e.id DESC;
 exports.updateEmployee = async (req, res) => {
 
     const { id } = req.params;
-
+console.log("UPDATE BODY =", req.body);
+console.log("UPDATE ID =", id);
     const {
         employee_id,
         full_name,
@@ -161,17 +162,17 @@ if (employee.length === 0) {
 }
         await db.execute(
             `UPDATE employees
-            SET
-                employee_id=?,
-                full_name=?,
-                email=?,
-                phone=?,
-                department=?,
-                designation=?,
-                salary=?,
-                joining_date=?,
-                status=?
-            WHERE id=?`,
+SET
+    employee_id=?,
+    full_name=?,
+    email=?,
+    phone=?,
+    department_id=?,
+    designation=?,
+    salary=?,
+    joining_date=?,
+    status=?
+WHERE id=?`,
             [
                 employee_id,
                 full_name,
