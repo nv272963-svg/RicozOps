@@ -36,8 +36,8 @@ if (
 // Check duplicate Employee ID or Email
 const [existing] = await db.execute(
     `SELECT id FROM employees
-     WHERE employee_id = ? OR email = ?`,
-    [employee_id, email]
+     WHERE email = ?`,
+    [email]
 );
 
 if (existing.length > 0) {
@@ -46,32 +46,30 @@ if (existing.length > 0) {
         message: "Employee ID or Email already exists."
     });
 }
-        await db.execute(
-    `INSERT INTO employees
-    (
-        employee_id,
-        full_name,
-        email,
-        phone,
-        department,
-        designation,
-        salary,
-        joining_date,
-        status
-    )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-    employee_id,
+      await db.execute(
+`INSERT INTO employees
+(
     full_name,
     email,
     phone,
-    department,
+    department_id,
+    designation,
+    salary,
+    joining_date,
+    status
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+[
+    full_name,
+    email,
+    phone,
+    1, // IT Department
     designation,
     salary,
     joining_date,
     "Active"
 ]
-        );
+);
 
         return res.status(201).json({
             success: true,
