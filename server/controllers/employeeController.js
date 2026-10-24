@@ -235,13 +235,14 @@ if (employee.length === 0) {
 
     } catch (err) {
 
-        console.log("DELETE ERROR:", err);
+    console.log("DELETE ERROR:", err);
+    console.log(err.message);
 
-        return res.status(500).json({
-            success: false,
-            error: err.message
-        });
+    return res.status(500).json({
+        success: false,
+        error: err.message
+    });
 
-    }
+}
 
 };
