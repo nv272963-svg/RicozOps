@@ -5,6 +5,7 @@ console.log("EMPLOYEE CONTROLLER LOADED");
 // ================= ADD EMPLOYEE =================
 
 exports.addEmployee = async (req, res) => {
+    console.log("REQ BODY =", req.body);
     const {
         employee_id,
         full_name,
