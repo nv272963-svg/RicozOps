@@ -6,16 +6,16 @@ console.log("EMPLOYEE CONTROLLER LOADED");
 
 exports.addEmployee = async (req, res) => {
     console.log("REQ BODY =", req.body);
-    const {
-        employee_id,
-        full_name,
-        email,
-        phone,
-        department,
-        designation,
-        salary,
-        joining_date
-    } = req.body;
+   const {
+    employee_id,
+    full_name,
+    email,
+    phone,
+    department_id,
+    designation,
+    salary,
+    joining_date
+} = req.body;
 
     try {
         // Check all required fields
@@ -24,7 +24,7 @@ if (
     !full_name ||
     !email ||
     !phone ||
-    !department ||
+    !department_id||
     !designation ||
     !salary ||
     !joining_date
@@ -50,6 +50,7 @@ if (existing.length > 0) {
       await db.execute(
 `INSERT INTO employees
 (
+    employee_id,
     full_name,
     email,
     phone,
@@ -59,12 +60,13 @@ if (existing.length > 0) {
     joining_date,
     status
 )
-VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 [
+    employee_id,
     full_name,
     email,
     phone,
-    1, // IT Department
+    department_id, // IT Department
     designation,
     salary,
     joining_date,
