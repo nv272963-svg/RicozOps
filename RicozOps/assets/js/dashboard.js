@@ -636,3 +636,51 @@ if (logoutBtn) {
         }
     });
 }
+function renderCalendar() {
+
+    const month = document.getElementById("calendarMonth");
+    const body = document.getElementById("calendarBody");
+
+    if (!month || !body) return;
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const monthIndex = today.getMonth();
+    const date = today.getDate();
+
+    const months = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    month.innerText = `${months[monthIndex]} ${year}`;
+
+    const firstDay = new Date(year, monthIndex, 1).getDay();
+    const totalDays = new Date(year, monthIndex + 1, 0).getDate();
+
+    let html = "<tr>";
+
+    for (let i = 0; i < firstDay; i++) {
+        html += "<td></td>";
+    }
+
+    for (let d = 1; d <= totalDays; d++) {
+
+        if ((firstDay + d - 1) % 7 === 0 && d !== 1) {
+            html += "</tr><tr>";
+        }
+
+        if (d === date) {
+            html += `<td class="today">${d}</td>`;
+        } else {
+            html += `<td>${d}</td>`;
+        }
+    }
+
+    html += "</tr>";
+
+    body.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", renderCalendar);
