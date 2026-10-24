@@ -95,20 +95,21 @@ exports.getEmployees = async (req, res) => {
 
        const [employees] = await db.execute(`
 SELECT
-    e.id,
-    e.employee_id,
-    e.full_name,
-    e.email,
-    e.phone,
-    e.designation,
-    e.salary,
-    e.joining_date,
-    e.status,
-    d.department_name
+e.id,
+e.employee_id,
+e.full_name,
+e.email,
+e.phone,
+e.department_id,
+d.department_name,
+e.designation,
+e.salary,
+e.joining_date,
+e.status
 FROM employees e
 LEFT JOIN departments d
 ON e.department_id = d.id
-ORDER BY e.id DESC;
+ORDER BY e.id DESC
 `);
 
         console.log("Employees:", employees);
@@ -140,7 +141,7 @@ console.log("UPDATE ID =", id);
         full_name,
         email,
         phone,
-        department,
+        department_id,
         designation,
         salary,
         joining_date,
@@ -173,18 +174,18 @@ SET
     joining_date=?,
     status=?
 WHERE id=?`,
-            [
-                employee_id,
-                full_name,
-                email,
-                phone,
-                department,
-                designation,
-                salary,
-                joining_date,
-                status,
-                id
-            ]
+           [
+    employee_id,
+    full_name,
+    email,
+    phone,
+    department_id,
+    designation,
+    salary,
+    joining_date,
+    status,
+    id
+]
         );
 
         return res.json({

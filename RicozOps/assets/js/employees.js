@@ -437,7 +437,7 @@ console.log("SAVE BUTTON CLICKED");
 
             phone: document.getElementById("phone").value.trim(),
 
-            department: document.getElementById("department").value.trim(),
+            department_id: Number(document.getElementById("department").value).trim(),
 
             designation: document.getElementById("designation").value.trim(),
 
