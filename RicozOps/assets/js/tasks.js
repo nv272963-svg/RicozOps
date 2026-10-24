@@ -740,6 +740,24 @@ async function loadTasks() {
         console.log(data);
 
         if (!data.success) return;
+        // ================= DASHBOARD COUNTS =================
+
+document.getElementById("totalTasks").innerText = data.tasks.length;
+
+document.getElementById("pendingTasks").innerText =
+    data.tasks.filter(t => t.status === "Pending").length;
+
+document.getElementById("runningTasks").innerText =
+    data.tasks.filter(t => t.status === "In Progress").length;
+
+document.getElementById("completedTasks").innerText =
+    data.tasks.filter(t => t.status === "Completed").length;
+
+document.getElementById("overdueTasks").innerText =
+    data.tasks.filter(t =>
+        new Date(t.due_date) < new Date() &&
+        t.status !== "Completed"
+    ).length;
 
         const tbody = document.getElementById("taskTableBody");
 
