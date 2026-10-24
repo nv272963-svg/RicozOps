@@ -735,86 +735,47 @@ async function loadTasks() {
     try {
 
         const response = await fetch("https://ricozops-1.onrender.com/api/tasks");
-
         const data = await response.json();
+
+        console.log(data);
+
+        if (!data.success) return;
 
         const tbody = document.getElementById("taskTableBody");
 
-        if (!tbody) {
-            console.log("taskTableBody not found");
-            return;
-        }
-
         tbody.innerHTML = "";
 
-        if(!data.success) return;
+        let html = "";
 
-data.tasks.forEach(task=>{
+        data.tasks.forEach(task => {
 
-            let html = "";
-
-data.tasks.forEach(task => {
-
-    html += `
-<tr>
-    <td>${task.task_title}</td>
-    <td>${task.employee_name || "-"}</td>
-    <td>${task.project_name || "-"}</td>
-    <td>${task.priority}</td>
-    <td>${task.status}</td>
-    <td>${new Date(task.due_date).toLocaleDateString("en-GB")}</td>
-    <td>
-
-
-                <button class="action-btn view"
-                    onclick="viewTask(${task.id})">👁</button>
-
-                <button class="action-btn edit"
-                    onclick="editTask(${task.id})">✏️</button>
-
-                <button class="action-btn delete"
-                    onclick="deleteTask(${task.id})">🗑</button>
-
-            </td>
-
-        </tr>
-    `;
-
-});
-
-tbody.innerHTML = html; `
-                <tr>
-                    <td>${task.task_title}</td>
-                    <td>${task.priority}</td>
-                    <td>${task.status}</td>
-                    <td>${new Date(task.due_date).toLocaleDateString("en-GB")}</td>
-                    <td>
-                        <button class="action-btn view"
-onclick="viewTask(${task.id})">
-👁
-</button>
-                        <button class="action-btn edit"
-    onclick="console.log('Edit Clicked', ${task.id}); editTask(${task.id})">
-    ✏️
-</button>
-                       <button class="action-btn delete"
-        onclick="deleteTask(${task.id})">
-    🗑
-</button>
-                    </td>
-                </tr>
+            html += `
+            <tr>
+                <td>${task.task_title}</td>
+                <td>${task.employee_name || "-"}</td>
+                <td>${task.project_name || "-"}</td>
+                <td>${task.priority}</td>
+                <td>${task.status}</td>
+                <td>${new Date(task.due_date).toLocaleDateString("en-GB")}</td>
+                <td>
+                    <button onclick="viewTask(${task.id})">👁</button>
+                    <button onclick="editTask(${task.id})">✏️</button>
+                    <button onclick="deleteTask(${task.id})">🗑</button>
+                </td>
+            </tr>
             `;
 
         });
 
-    } catch (err) {
+        tbody.innerHTML = html;
+
+    } catch(err) {
 
         console.log(err);
 
     }
 
 }
-
 window.addEventListener("DOMContentLoaded", () => {
 
     loadTasks();
