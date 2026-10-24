@@ -516,3 +516,47 @@ department_id: Number(document.getElementById("department").value),
     });
 
 }
+// ================= Department Chart =================
+const deptCanvas = document.getElementById("departmentChart");
+
+if (deptCanvas) {
+    new Chart(deptCanvas, {
+        type: "doughnut",
+        data: {
+            labels: ["IT", "HR", "Finance", "Marketing"],
+            datasets: [{
+                data: [8, 3, 2, 1],
+                backgroundColor: [
+                    "#4F46E5",
+                    "#22C55E",
+                    "#F59E0B",
+                    "#EF4444"
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
+
+// ================= Monthly Hiring Chart =================
+const hiringCanvas = document.getElementById("hiringChart");
+
+if (hiringCanvas) {
+    new Chart(hiringCanvas, {
+        type: "bar",
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [{
+                label: "Hiring",
+                data: [2, 5, 3, 7, 4, 6]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
