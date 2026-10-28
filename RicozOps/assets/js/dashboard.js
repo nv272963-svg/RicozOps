@@ -1,16 +1,21 @@
+const API_URL = "http://localhost:5000/api";
 /* ==========================================
    RicozOps Dashboard v3.0
 ========================================== */
-
-// ============================
-// AUTH CHECK
-// ============================
+// ===============================
+// LOGIN CHECK
+// ===============================
 
 const token = localStorage.getItem("token");
+const user = JSON.parse(localStorage.getItem("user"));
 
-if (!token) {
+if (!token || !user) {
     window.location.href = "login.html";
 }
+
+document.getElementById("userName").textContent = user.full_name;
+document.getElementById("welcomeUser").textContent = `${user.full_name} 👋`;
+
 
 // ============================
 // GLOBAL VARIABLES
@@ -27,8 +32,8 @@ async function loadDashboard() {
 
     try {
 
-        const response = await fetch(
-            "https://ricozops-1.onrender.com/api/dashboard/stats",
+       const response = await fetch(
+`${API_URL}/dashboard/stats`,
             {
                 headers: {
                     Authorization: "Bearer " + token
@@ -72,7 +77,7 @@ async function loadAnalytics() {
     try {
 
         const response = await fetch(
-            "https://ricozops-1.onrender.com/api/dashboard/analytics",
+`${API_URL}/dashboard/analytics`,
             {
                 headers: {
                     Authorization: "Bearer " + token

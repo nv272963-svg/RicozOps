@@ -24,50 +24,110 @@
 
     <div class="right">
 
-        <form id="loginForm">
+       <!-- LOGIN FORM -->
 
-            <h2>Login</h2>
+<form id="loginForm">
 
-            <div class="input-box">
-                <i class="fa-solid fa-envelope"></i>
-                <input
-    type="email"
-    id="email"
-    placeholder="Email Address"
-    required
->
-            </div>
+    <h2>Login</h2>
 
-            <div class="input-box">
-                <i class="fa-solid fa-lock"></i>
-                <input
-    type="password"
-    id="password"
-    placeholder="Password"
-    required
->
-            </div>
+    <div class="input-box">
+        <i class="fa-solid fa-envelope"></i>
+        <input
+            type="email"
+            id="email"
+            placeholder="Email Address"
+            required>
+    </div>
 
-            <div class="options">
+    <div class="input-box">
+        <i class="fa-solid fa-lock"></i>
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required>
+    </div>
 
-                <label>
+    <div class="options">
+        <label>
+            <input type="checkbox">
+            Remember Me
+        </label>
 
-                    <input
-    type="checkbox"
-    id="rememberMe">
+        <a href="#" id="forgotPasswordLink">
+            Forgot Password?
+        </a>
+    </div>
 
-                    Remember Me
+    <button type="submit">
+        Login
+    </button>
 
-                </label>
+    <p class="switch-form">
+        Don't have an account?
+        <a href="#" id="showRegister">
+            Register
+        </a>
+    </p>
 
-                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+</form>
 
-            </div>
 
-            <button type="submit">Login</button>
 
-        </form>
+<!-- REGISTER FORM -->
 
+<form id="registerForm" style="display:none;">
+
+    <h2>Create Account</h2>
+
+    <div class="input-box">
+        <i class="fa-solid fa-user"></i>
+        <input
+            type="text"
+            id="full_name"
+            placeholder="Full Name"
+            required>
+    </div>
+
+    <div class="input-box">
+        <i class="fa-solid fa-envelope"></i>
+        <input
+            type="email"
+            id="reg_email"
+            placeholder="Email Address"
+            required>
+    </div>
+
+    <div class="input-box">
+        <i class="fa-solid fa-phone"></i>
+        <input
+            type="text"
+            id="mobile"
+            placeholder="Mobile Number"
+            required>
+    </div>
+
+    <div class="input-box">
+        <i class="fa-solid fa-lock"></i>
+        <input
+            type="password"
+            id="reg_password"
+            placeholder="Password"
+            required>
+    </div>
+
+    <button type="submit">
+        Register
+    </button>
+
+    <p class="switch-form">
+        Already have an account?
+        <a href="#" id="showLogin">
+            Login
+        </a>
+    </p>
+
+</form>
     </div>
 
 </div>

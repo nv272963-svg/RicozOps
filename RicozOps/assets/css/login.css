@@ -209,3 +209,42 @@ width:100%;
 }
 
 }
+/* ==========================
+   LOGIN / REGISTER SWITCH
+========================== */
+
+.switch-form{
+    text-align:center;
+    margin-top:20px;
+    font-size:15px;
+}
+
+.switch-form a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.switch-form a:hover{
+    text-decoration:underline;
+}
+
+#loginForm,
+#registerForm{
+    animation: fadeIn .35s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

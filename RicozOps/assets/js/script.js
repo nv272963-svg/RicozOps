@@ -17,7 +17,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ================= Active Navbar =================
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
+const header = document.querySelector(".header");
 
+if(window.scrollY > 40){
+
+    header.classList.add("scrolled");
+
+}else{
+
+    header.classList.remove("scrolled");
+
+}
 window.addEventListener("scroll", () => {
 
     let current = "";
@@ -118,31 +128,64 @@ percentCounters.forEach(counter => {
 
 const scrollBtn = document.getElementById("scrollTopBtn");
 
-window.addEventListener("scroll", () => {
+if(scrollBtn){
 
-    if(window.scrollY > 300){
+window.addEventListener("scroll",()=>{
 
-        scrollBtn.style.display = "flex";
-        scrollBtn.style.alignItems = "center";
-        scrollBtn.style.justifyContent = "center";
+if(window.scrollY>300){
 
-    }else{
+scrollBtn.style.display="flex";
 
-        scrollBtn.style.display = "none";
+}else{
+
+scrollBtn.style.display="none";
+
+}
+
+});
+
+scrollBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+}
+const faq=document.querySelectorAll(".faq-item");
+
+faq.forEach(item=>{
+
+    item.querySelector(".faq-question").onclick=()=>{
+
+        faq.forEach(f=>{
+
+            if(f!=item){
+
+                f.classList.remove("active");
+                f.querySelector("span").innerHTML="+";
+
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+        if(item.classList.contains("active")){
+
+            item.querySelector("span").innerHTML="−";
+
+        }else{
+
+            item.querySelector("span").innerHTML="+";
+
+        }
 
     }
 
 });
-
-scrollBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-});
-console.log("script loaded");

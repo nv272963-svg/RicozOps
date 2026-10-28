@@ -1,7 +1,6 @@
 const mysql = require("mysql2/promise");
 require("dotenv").config();
 
-// Database Configuration
 console.log("DB Config:", {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -9,7 +8,6 @@ console.log("DB Config:", {
   database: process.env.DB_NAME
 });
 
-// Create MySQL Pool
 const db = mysql.createPool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -19,21 +17,6 @@ const db = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: {
-    rejectUnauthorized: false
-  }
 });
-
-// Test Database Connection
-(async () => {
-  try {
-    const connection = await db.getConnection();
-    console.log("✅ MySQL Connected Successfully");
-    connection.release();
-  } catch (err) {
-    console.error("❌ Database Connection Failed");
-    console.error(err);
-  }
-})();
 
 module.exports = db;

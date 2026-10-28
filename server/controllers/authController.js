@@ -1,27 +1,31 @@
+const {
+    findFranchiseByEmail,
+    createFranchiseUser
+} = require("../models/franchiseUserModel");
+
+console.log("MODEL LOADED => franchiseUserModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const {
-    createUser,
-    findUserByEmail
-} = require("../models/userModel");
+
 
 // =========================
 // Register User
 // =========================
 
 const register = async (req, res) => {
+    console.log("REGISTER API HIT");
     try {
-        const { full_name, email, password, role } = req.body;
+        const { full_name, email, mobile, password } = req.body;
 
-        if (!full_name || !email || !password) {
+        if (!full_name || !email || !mobile || !password) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required."
             });
         }
 
-        const existingUser = await findUserByEmail(email);
+        const existingUser = await findFranchiseByEmail(email);
 
         if (existingUser.length > 0) {
             return res.status(400).json({
@@ -32,12 +36,12 @@ const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await createUser({
-            full_name,
-            email,
-            password: hashedPassword,
-            role: role || "Employee"
-        });
+        await createFranchiseUser({
+    full_name,
+    email,
+    mobile,
+    password: hashedPassword
+});
 
         return res.status(201).json({
             success: true,
@@ -45,11 +49,16 @@ const register = async (req, res) => {
         });
 
     } catch (err) {
-        return res.status(500).json({
-            success: false,
-            message: err.message
-        });
-    }
+
+    console.log("REGISTER ERROR:");
+    console.log(err);
+
+    return res.status(500).json({
+        success: false,
+        message: err.message
+    });
+
+}
 };
 // =========================
 // Login User
@@ -70,7 +79,7 @@ const login = async (req, res) => {
             });
         }
 
-        const result = await findUserByEmail(email);
+       const result = await findFranchiseByEmail(email);
 
         console.log("LOGIN REQUEST RECEIVED");
 
@@ -92,17 +101,15 @@ const login = async (req, res) => {
             });
         }
 console.log("LOGIN JWT_SECRET =", process.env.JWT_SECRET);
-        const token = jwt.sign(
-            {
-                id: user.id,
-                email: user.email,
-                role: user.role
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: "7d"
-            }
-        );
+       const token = jwt.sign(
+{
+    id: user.id,
+    email: user.email
+},
+process.env.JWT_SECRET,
+{
+    expiresIn: "7d"
+});
 
         console.log("TOKEN CREATED");
 
@@ -111,11 +118,10 @@ console.log("LOGIN JWT_SECRET =", process.env.JWT_SECRET);
             message: "Login Successful",
             token,
             user: {
-                id: user.id,
-                full_name: user.full_name,
-                email: user.email,
-                role: user.role
-            }
+    id: user.id,
+    full_name: user.full_name,
+    email: user.email
+}
         });
 
     } catch (err) {

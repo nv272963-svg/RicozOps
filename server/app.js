@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Import Routes
+const partnerRoutes = require("./routes/partnerRoutes");
 const authRoutes = require("./routes/authRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const employeeRoutes = require("./routes/employeeRoutes");
@@ -22,6 +23,7 @@ const notificationRoutes = require("./routes/notificationRoutes");
 const settingsRoutes = require("./routes/settingsRoutes");
 
 // Register Routes
+app.use("/api/partners", partnerRoutes);
 app.use("/api/auth", authRoutes);
 console.log("✅ Dashboard Routes Registered");
 app.use("/api/dashboard", dashboardRoutes);

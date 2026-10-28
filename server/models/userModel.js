@@ -4,18 +4,17 @@ const db = require("../config/db");
 const createUser = async (userData) => {
 
     const sql = `
-        INSERT INTO users
-        (full_name, email, password, role)
-        VALUES (?, ?, ?, ?)
+      INSERT INTO franchise_users
+(full_name, email, mobile, password)
+VALUES (?, ?, ?, ?)
     `;
 
     const [result] = await db.execute(sql, [
-        userData.full_name,
-        userData.email,
-        userData.password,
-        userData.role
-    ]);
-
+    userData.full_name,
+    userData.email,
+    userData.mobile,
+    userData.password
+]);
     return result;
 };
 
@@ -23,7 +22,7 @@ const createUser = async (userData) => {
 const findUserByEmail = async (email) => {
 
     const [rows] = await db.execute(
-        "SELECT * FROM users WHERE email = ?",
+        "SELECT * FROM franchise_users WHERE email = ?",
         [email]
     );
 
