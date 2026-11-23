@@ -9,11 +9,11 @@ console.log("dashboardRoutes Loaded");
 // Test Route
 router.get("/stats", verifyToken, dashboardController.getDashboardStats);
 router.get("/analytics", verifyToken, dashboardController.getDashboardAnalytics);
-router.get(
+/* router.get(
     "/activities",
     verifyToken,
     dashboardController.getRecentActivities
-);
+); */
 // Root Route
 router.get("/", verifyToken, (req, res) => {
     res.json({
