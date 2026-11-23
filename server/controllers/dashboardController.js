@@ -35,14 +35,7 @@ const [[revenue]] = await db.execute(
             "SELECT COUNT(*) AS total FROM tasks"
         );
 
-        const [[attendance]] = await db.execute(
-            "SELECT COUNT(*) AS total FROM attendance WHERE attendance_date = CURDATE()"
-        );
-
-        const [[leaves]] = await db.execute(
-            "SELECT COUNT(*) AS total FROM leaves WHERE status='Pending'"
-        );
-
+       
         return res.status(200).json({
 
             success: true,
@@ -61,9 +54,7 @@ totalRevenue: revenue.total,
 
    
 
-    todayAttendance: attendance.total,
-
-    pendingLeaves: leaves.total,
+    
     projectStatus: projectStatus
 
 }
@@ -170,7 +161,7 @@ console.error(err.sql);
 // GET RECENT ACTIVITIES
 // ==========================================
 
-exports.getRecentActivities = async (req, res) => {
+/* exports.getRecentActivities = async (req, res) => {
 
     try {
 
@@ -203,4 +194,4 @@ exports.getRecentActivities = async (req, res) => {
 
     }
 
-};
+}; */
