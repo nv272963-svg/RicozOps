@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
 
-console.log("CERT PATH:", path.join(__dirname, "../isrgrootx1.pem"));
+console.log("CERT PATH:", path.join(__dirname, "../ca.pem/isrgrootx1.pem"));
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -13,7 +13,7 @@ const db = mysql.createPool({
   database: process.env.DB_NAME,
 
   ssl: {
-  ca: fs.readFileSync(path.join(__dirname, "../isrgrootx1.pem")),
+  ca: fs.readFileSync(path.join(__dirname, "../ca.pem/isrgrootx1.pem")),
   minVersion: "TLSv1.2",
   rejectUnauthorized: true
 },
