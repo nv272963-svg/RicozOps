@@ -13,8 +13,10 @@ const db = mysql.createPool({
   database: process.env.DB_NAME,
 
   ssl: {
-    ca: fs.readFileSync(path.join(__dirname, "../isrgrootx1.pem"))
-  },
+  ca: fs.readFileSync(path.join(__dirname, "../isrgrootx1.pem")),
+  minVersion: "TLSv1.2",
+  rejectUnauthorized: true
+},
 
   waitForConnections: true,
   connectionLimit: 10,
