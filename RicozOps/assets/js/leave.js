@@ -344,29 +344,28 @@ leaveForm.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch(`${API_URL}/leaves/add`, {
+       const token = localStorage.getItem("token");
 
-            method: "POST",
+const response = await fetch(`${API_URL}/leaves/add`, {
 
-            headers: {
+    method: "POST",
 
-                "Content-Type": "application/json"
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    },
 
-            },
+    body: JSON.stringify({
+        employee_id,
+        leave_type,
+        start_date,
+        end_date,
+        total_days,
+        reason,
+        status: "Pending"
+    })
 
-           body: JSON.stringify({
-
-employee_id,
-leave_type,
-start_date,
-end_date,
-total_days,
-reason,
-status:"Pending"
-
-})
-
-        });
+});
 
         const result = await response.json();
 

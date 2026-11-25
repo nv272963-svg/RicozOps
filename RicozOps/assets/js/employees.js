@@ -4,7 +4,7 @@
 ========================================== */
 
 // API URL
-const API = "https://ricozops-1.onrender.com/api/employees";
+const API = "http://localhost:5000/api/employees";
 
 // DOM Elements
 const employeeTableBody = document.getElementById("employeeTableBody");
