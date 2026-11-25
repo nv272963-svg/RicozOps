@@ -433,82 +433,29 @@ function editLeave(id) {
     leaveModal.style.display = "flex";
 
 }
-// =========================================
 // Update Leave
 // =========================================
+const token = localStorage.getItem("token");
 
-leaveForm.addEventListener("submit", async function (e) {
+const response = await fetch(`${API_URL}/leaves/update/${editId}`, {
 
-    if (editId === -1) return;
+    method: "PUT",
 
-    e.preventDefault();
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+    },
 
-    const leave_type = document.getElementById("leave_type").value;
+    body: JSON.stringify({
 
-    const start_date = document.getElementById("start_date").value;
+        leave_type,
+        start_date,
+        end_date,
+        total_days,
+        reason,
+        status: "Pending"
 
-    const end_date = document.getElementById("end_date").value;
-
-    const total_days = document.getElementById("total_days").value;
-
-    const reason = document.getElementById("reason").value;
-
-    try {
-
-        const response = await fetch(`${API_URL}/leaves/update/${editId}`, {
-
-            method: "PUT",
-
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
-
-            body: JSON.stringify({
-
-                leave_type,
-                start_date,
-                end_date,
-                total_days,
-                reason,
-                status: "Pending"
-
-            })
-
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-
-            alert(result.message);
-
-            leaveModal.style.display = "none";
-
-            leaveForm.reset();
-
-            editId = -1;
-
-            fetchLeaves();
-
-        }
-
-        else {
-
-            alert(result.error);
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.log("UPDATE LEAVE ERROR:", error);
-
-        alert("Update Failed");
-
-    }
+    })
 
 });
 // =========================================

@@ -1,6 +1,6 @@
 console.log("LOGIN JS LOADED");
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://ricozops-1.onrender.com/api/auth";
 
 const loginForm = document.getElementById("loginForm");
 
