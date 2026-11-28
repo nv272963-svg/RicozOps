@@ -328,7 +328,7 @@ leaveForm.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
-    if (editId !== -1) return;
+    
 
     const employee_id = document.getElementById("employee_id").value;
 
@@ -341,7 +341,13 @@ leaveForm.addEventListener("submit", async function (e) {
     const total_days = document.getElementById("total_days").value;
 
     const reason = document.getElementById("reason").value;
+if (editId !== -1) {
 
+    alert("Update Mode");
+
+    return;
+
+}
     try {
 
        const token = localStorage.getItem("token");
@@ -435,29 +441,7 @@ function editLeave(id) {
 }
 // Update Leave
 // =========================================
-const token = localStorage.getItem("token");
 
-const response = await fetch(`${API_URL}/leaves/update/${editId}`, {
-
-    method: "PUT",
-
-    headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-    },
-
-    body: JSON.stringify({
-
-        leave_type,
-        start_date,
-        end_date,
-        total_days,
-        reason,
-        status: "Pending"
-
-    })
-
-});
 // =========================================
 // Delete Leave
 // =========================================
