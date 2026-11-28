@@ -454,12 +454,15 @@ async function deleteLeave(id) {
 
     try {
 
+        const token = localStorage.getItem("token");
+
         const response = await fetch(`${API_URL}/leaves/delete/${id}`, {
 
             method: "DELETE",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
 
         });
@@ -472,17 +475,13 @@ async function deleteLeave(id) {
 
             fetchLeaves();
 
-        }
-
-        else {
+        } else {
 
             alert(result.error);
 
         }
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.log("DELETE LEAVE ERROR:", error);
 
@@ -656,24 +655,19 @@ exportLeaveBtn.addEventListener("click", function () {
 async function approveLeave(id, status) {
 
     try {
-
+const token = localStorage.getItem("token");
         const response = await fetch(`${API_URL}/leaves/approve/${id}`, {
 
-            method: "PUT",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-
-    status: status,
-
-    approved_by: 4
-
-})
-
-        });
+             method: "PUT",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({
+        status: status,
+        approved_by: 4
+    })
+});
 
         const result = await response.json();
 
